@@ -33,3 +33,7 @@ out/
 # Otros posibles generados
 # ==========================
 npm-debug.log*
+
+# Ignorar configuración local de Obsidian
+.obsidian/
+
