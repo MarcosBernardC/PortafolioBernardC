@@ -1,0 +1,35 @@
+# ==========================
+# Archivos del sistema
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Archivos temporales
+# ==========================
+*.log
+*.tmp
+*.swp
+*.bak
+*.cache
+*.map
+
+# ==========================
+# Directorios de salida o empaquetado
+# ==========================
+dist/
+build/
+out/
+*.tar.gz
+*.zip
+
+# ==========================
+# Archivos de entorno
+# ==========================
+.env
+.env.local
+
+# ==========================
+# Otros posibles generados
+# ==========================
+npm-debug.log*
