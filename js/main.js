@@ -35,6 +35,17 @@ menuItems.forEach(item => {
                             container.style.transform = 'translateY(0)';
                         }, 50);
                     }
+                } else if (target === 'process') {
+                    // Animación suave para sección Process
+                    const container = sec.querySelector('.process-container');
+                    if (container) {
+                        container.style.opacity = 0;
+                        container.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            container.style.opacity = 1;
+                            container.style.transform = 'translateY(0)';
+                        }, 50);
+                    }
                 } else {
                     // Efecto slide para otras secciones
                     const content = sec.firstElementChild;
