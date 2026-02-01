@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/project-styles.css">
 </head>
+
 <body>
     <!-- SECCIÓN SUPERIOR ESTÁTICA -->
     <div class="header-section">
@@ -21,7 +23,7 @@
             <a href="#" class="menu-item" data-target="contact">CONTACT</a>
         </nav>
     </div>
-    
+
     <!-- HERO / FRASE PRINCIPAL (Sustituye imagen por lema) -->
     <div class="image-section">
         <div class="content-container">
@@ -34,19 +36,45 @@
             </div>
             <!-- Otras secciones -->
             <div class="content-section" id="projects">
+                <!-- Global Phase Legend -->
+                <div class="phase-legend-container">
+                    <button class="legend-toggle" onclick="toggleLegend()">
+                        <i class="fa-solid fa-circle-info"></i> Guía de Fases <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="phase-legend" id="global-legend">
+                        <div class="legend-grid">
+                            <div class="legend-item">
+                                <h4><span class="legend-dot mvp"></span> FASE 1: MVP</h4>
+                                <p>Prototipo funcional de bajo costo. Validación de concepto con herramientas Open
+                                    Source.</p>
+                            </div>
+                            <div class="legend-item">
+                                <h4><span class="legend-dot spiral"></span> FASE 2: SPIRAL</h4>
+                                <p>Desarrollo iterativo de campo. Análisis de viabilidad técnica y económica.</p>
+                            </div>
+                            <div class="legend-item">
+                                <h4><span class="legend-dot vmodel"></span> FASE 3: V-MODEL</h4>
+                                <p>Estandarización y calidad industrial. Trazabilidad total y pruebas formales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="projects-container">
-                    <!-- Card 1: NodoSensor V2 -->
+                    <!-- Card 1: AgriNode Lite -->
                     <div class="project-card">
+                        <div class="status-badge status-mvp">MVP</div>
                         <div class="card-header">
                             <i class="fa-solid fa-microchip card-icon"></i>
                         </div>
-                        <h3 class="card-title">NodoSensor V2: Eficiencia Energética</h3>
-                        <p class="card-description">Redefiniendo la adquisición de datos en entornos industriales con ultra-bajo consumo.</p>
+                        <h3 class="card-title">AgriNode Lite</h3>
+                        <p class="card-description">Nodo IoT de sensado agroambiental.</p>
                         <div class="card-badges">
                             <span class="badge">C</span>
-                            <span class="badge">FreeRTOS</span>
-                            <span class="badge">MQTT</span>
+                            <span class="badge">UART</span>
+                            <span class="badge">I2C</span>
                         </div>
+
                         <div class="progress-section">
                             <div class="progress-label">
                                 <span>Progreso</span>
@@ -56,258 +84,377 @@
                                 <div class="progress-fill" style="width: 35%;"></div>
                             </div>
                         </div>
+
+                        <!-- Inline Collapsible Checklist -->
+                        <div class="progress-details">
+                            <ul class="checklist">
+                                <li class="checklist-item">
+                                    <div class="checklist-info">
+                                        <i class="fa-solid fa-check checklist-icon done"></i>
+                                        <span class="checklist-text">Diseño Esquemático</span>
+                                    </div>
+                                    <span class="checklist-date">Ene 15</span>
+                                </li>
+                                <li class="checklist-item">
+                                    <div class="checklist-info">
+                                        <i class="fa-solid fa-check checklist-icon done"></i>
+                                        <span class="checklist-text">Validación Sensores</span>
+                                    </div>
+                                    <span class="checklist-date">Ene 20</span>
+                                </li>
+                                <li class="checklist-item">
+                                    <div class="checklist-info">
+                                        <i class="fa-regular fa-circle checklist-icon pending"></i>
+                                        <span class="checklist-text">Optimización Energía</span>
+                                    </div>
+                                    <span class="checklist-date">Pendiente</span>
+                                </li>
+                                <li class="checklist-item">
+                                    <div class="checklist-info">
+                                        <i class="fa-regular fa-circle checklist-icon pending"></i>
+                                        <span class="checklist-text">Documentación</span>
+                                    </div>
+                                    <span class="checklist-date">--</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button class="details-toggle" onclick="toggleDetails(this)">
+                            Ver Detalles <i class="fa-solid fa-chevron-down"></i>
+                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="content-section" id="services">
-                <div class="placeholder-image">
-                    <p>Servicios que ofrezco...</p>
+                <div class="content-section" id="services">
+                    <div class="placeholder-image">
+                        <p>Servicios que ofrezco...</p>
+                    </div>
                 </div>
-            </div>
-            <div class="content-section" id="process">
-                <div class="process-container">
-                    <div class="process-content">
-                        <!-- Metodología de trabajo -->
-                        <section class="process-section">
-                            <h2 class="process-title">Metodología de Trabajo</h2>
-                            <p class="process-text">
-                                Mi proceso combina <strong>prototipado iterativo, automatización total y asistencia con IA</strong>, orientado a lograr desarrollos reproducibles, eficientes y escalables.
-                                Cada módulo —hardware, firmware o software— se desarrolla de forma independiente, validando funcionalidad, rendimiento y trazabilidad desde la terminal.
-                            </p>
-                            <ul class="process-list">
-                                <li><strong>Iterativo y modular:</strong> desarrollo por etapas, integrando progresivamente módulos validados.</li>
-                                <li><strong>Automatización desde terminal:</strong> compilación, test y backup gestionados con <strong>Fish + Makefiles</strong>, minimizando errores manuales.</li>
-                                <li><strong>Asistencia con IA:</strong> uso de modelos como <strong>GPT, Claude y DeepSeek</strong> para generación de código base, análisis de logs, optimización de estructuras y documentación automática.</li>
-                                <li><strong>Registro y depuración remota:</strong> monitoreo continuo vía <strong>UART + Python</strong>, con detección temprana de fallas en sistemas embebidos.</li>
-                                <li><strong>Optimización de recursos:</strong> revisión periódica del uso de <strong>memoria, buffers y flags de compilación</strong>.</li>
-                                <li><strong>Documentación automatizada:</strong> integración con <strong>Git/GitHub</strong> para versionado, changelogs y registro de iteraciones con commits trazables y descriptivos.</li>
-                            </ul>
-                        </section>
+                <div class="content-section" id="process">
+                    <div class="process-container">
+                        <div class="process-content">
+                            <!-- Metodología de trabajo -->
+                            <section class="process-section">
+                                <h2 class="process-title">Metodología de Trabajo</h2>
+                                <p class="process-text">
+                                    Mi proceso combina <strong>prototipado iterativo, automatización total y asistencia
+                                        con
+                                        IA</strong>, orientado a lograr desarrollos reproducibles, eficientes y
+                                    escalables.
+                                    Cada módulo —hardware, firmware o software— se desarrolla de forma independiente,
+                                    validando funcionalidad, rendimiento y trazabilidad desde la terminal.
+                                </p>
+                                <ul class="process-list">
+                                    <li><strong>Iterativo y modular:</strong> desarrollo por etapas, integrando
+                                        progresivamente módulos validados.</li>
+                                    <li><strong>Automatización desde terminal:</strong> compilación, test y backup
+                                        gestionados con <strong>Fish + Makefiles</strong>, minimizando errores manuales.
+                                    </li>
+                                    <li><strong>Asistencia con IA:</strong> uso de modelos como <strong>GPT, Claude y
+                                            DeepSeek</strong> para generación de código base, análisis de logs,
+                                        optimización
+                                        de estructuras y documentación automática.</li>
+                                    <li><strong>Registro y depuración remota:</strong> monitoreo continuo vía
+                                        <strong>UART +
+                                            Python</strong>, con detección temprana de fallas en sistemas embebidos.
+                                    </li>
+                                    <li><strong>Optimización de recursos:</strong> revisión periódica del uso de
+                                        <strong>memoria, buffers y flags de compilación</strong>.
+                                    </li>
+                                    <li><strong>Documentación automatizada:</strong> integración con
+                                        <strong>Git/GitHub</strong> para versionado, changelogs y registro de
+                                        iteraciones
+                                        con commits trazables y descriptivos.
+                                    </li>
+                                </ul>
+                            </section>
 
-                        <!-- Flujo de trabajo -->
-                        <section class="process-section">
-                            <h2 class="process-title">Flujo de Trabajo – Ejemplo Integrado</h2>
-                            <p class="process-text">
-                                En proyectos combinados, como un sistema embebido <strong>PIC16F1939 + ESP32</strong>, la IA se utiliza para <strong>asistir en la depuración y análisis de rendimiento</strong>.
-                                El flujo general incluye:
-                            </p>
-                            <ol class="process-workflow">
-                                <li>
-                                    <strong>Build automatizado:</strong> scripts en Fish ejecutan compilación y respaldo sin intervención manual.
-                                </li>
-                                <li>
-                                    <strong>Validación distribuida:</strong> monitoreo UART/I²C con registro automático de eventos y alertas.
-                                </li>
-                                <li>
-                                    <strong>Asistencia inteligente:</strong> la IA analiza logs, sugiere ajustes en el código o parámetros de compilación y genera reportes técnicos.
-                                </li>
-                                <li>
-                                    <strong>Documentación viva:</strong> Git registra cada iteración con resúmenes generados automáticamente por IA, manteniendo trazabilidad total del proyecto.
-                                </li>
-                            </ol>
-                        </section>
-
-                        <!-- Ventajas del enfoque -->
-                        <section class="process-section">
-                            <h2 class="process-title">Ventajas del Enfoque</h2>
-                            <div class="process-table-container">
-                                <table class="process-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Ventaja</th>
-                                            <th>Implementación clave</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>Rapidez</strong></td>
-                                            <td>Iteraciones cortas y asistidas por IA para depuración y análisis</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Reproducibilidad</strong></td>
-                                            <td>Scripts y Makefiles con builds consistentes</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Debug remoto</strong></td>
-                                            <td>Logs automáticos y alertas en tiempo real</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Optimización</strong></td>
-                                            <td>Ajustes inteligentes en compilación y uso de memoria</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Flexibilidad</strong></td>
-                                            <td>Flujo adaptable a distintos microcontroladores y entornos Linux</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Documentación viva</strong></td>
-                                            <td>Commit, changelog y resumen generados automáticamente</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Asistencia IA</strong></td>
-                                            <td>Generación de código base, revisión de eficiencia y predicción de fallas</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </section>
-
-                        <!-- Evolución hacia el Modelo Espiral Inteligente -->
-                        <section class="process-section">
-                            <h2 class="process-title">Evolución hacia el Modelo Espiral Inteligente</h2>
-                            <p class="process-text">
-                                La integración del <strong>modelo espiral</strong> potencia el proceso actual, combinando iteración técnica con análisis de riesgo asistido por IA.
-                                Cada ciclo incorpora validación automática y generación de conocimiento incremental.
-                            </p>
-                            <div class="process-cycle">
-                                <h3 class="process-cycle-title">Ciclo operativo:</h3>
+                            <!-- Flujo de trabajo -->
+                            <section class="process-section">
+                                <h2 class="process-title">Flujo de Trabajo – Ejemplo Integrado</h2>
+                                <p class="process-text">
+                                    En proyectos combinados, como un sistema embebido <strong>PIC16F1939 +
+                                        ESP32</strong>,
+                                    la IA se utiliza para <strong>asistir en la depuración y análisis de
+                                        rendimiento</strong>.
+                                    El flujo general incluye:
+                                </p>
                                 <ol class="process-workflow">
                                     <li>
-                                        <strong>Planificación inteligente:</strong> definición de objetivos, riesgos y métricas asistida por IA.
+                                        <strong>Build automatizado:</strong> scripts en Fish ejecutan compilación y
+                                        respaldo
+                                        sin intervención manual.
                                     </li>
                                     <li>
-                                        <strong>Prototipado automatizado:</strong> generación y compilación de módulos funcionales.
+                                        <strong>Validación distribuida:</strong> monitoreo UART/I²C con registro
+                                        automático
+                                        de eventos y alertas.
                                     </li>
                                     <li>
-                                        <strong>Evaluación asistida:</strong> análisis de logs y rendimiento con IA, generando reportes de mejora.
+                                        <strong>Asistencia inteligente:</strong> la IA analiza logs, sugiere ajustes en
+                                        el
+                                        código o parámetros de compilación y genera reportes técnicos.
                                     </li>
                                     <li>
-                                        <strong>Optimización y documentación:</strong> ajustes en performance, consumo y documentación autogenerada.
+                                        <strong>Documentación viva:</strong> Git registra cada iteración con resúmenes
+                                        generados automáticamente por IA, manteniendo trazabilidad total del proyecto.
                                     </li>
                                 </ol>
-                            </div>
-                            <p class="process-text">
-                                El resultado es un sistema de desarrollo <strong>inteligente, trazable y evolutivo</strong>, con aprendizaje continuo entre iteraciones.
-                            </p>
-                        </section>
+                            </section>
 
-                        <!-- Resumen -->
-                        <section class="process-section">
-                            <h2 class="process-title">Resumen</h2>
-                            <p class="process-text">
-                                Mi metodología integra:
-                            </p>
-                            <ul class="process-summary-list">
-                                <li>Prototipado modular e iterativo</li>
-                                <li>Automatización total desde terminal</li>
-                                <li>Análisis y asistencia continua con IA</li>
-                                <li>Depuración distribuida y documentación automática</li>
-                            </ul>
-                            <p class="process-text">
-                                Un proceso diseñado para <strong>acelerar el desarrollo, mejorar la calidad del código y mantener trazabilidad completa</strong> en entornos embebidos, IoT y sistemas distribuidos.
-                            </p>
-                        </section>
+                            <!-- Ventajas del enfoque -->
+                            <section class="process-section">
+                                <h2 class="process-title">Ventajas del Enfoque</h2>
+                                <div class="process-table-container">
+                                    <table class="process-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Ventaja</th>
+                                                <th>Implementación clave</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Rapidez</strong></td>
+                                                <td>Iteraciones cortas y asistidas por IA para depuración y análisis
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Reproducibilidad</strong></td>
+                                                <td>Scripts y Makefiles con builds consistentes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Debug remoto</strong></td>
+                                                <td>Logs automáticos y alertas en tiempo real</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Optimización</strong></td>
+                                                <td>Ajustes inteligentes en compilación y uso de memoria</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Flexibilidad</strong></td>
+                                                <td>Flujo adaptable a distintos microcontroladores y entornos Linux</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Documentación viva</strong></td>
+                                                <td>Commit, changelog y resumen generados automáticamente</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Asistencia IA</strong></td>
+                                                <td>Generación de código base, revisión de eficiencia y predicción de
+                                                    fallas
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <!-- Evolución hacia el Modelo Espiral Inteligente -->
+                            <section class="process-section">
+                                <h2 class="process-title">Evolución hacia el Modelo Espiral Inteligente</h2>
+                                <p class="process-text">
+                                    La integración del <strong>modelo espiral</strong> potencia el proceso actual,
+                                    combinando iteración técnica con análisis de riesgo asistido por IA.
+                                    Cada ciclo incorpora validación automática y generación de conocimiento incremental.
+                                </p>
+                                <div class="process-cycle">
+                                    <h3 class="process-cycle-title">Ciclo operativo:</h3>
+                                    <ol class="process-workflow">
+                                        <li>
+                                            <strong>Planificación inteligente:</strong> definición de objetivos, riesgos
+                                            y
+                                            métricas asistida por IA.
+                                        </li>
+                                        <li>
+                                            <strong>Prototipado automatizado:</strong> generación y compilación de
+                                            módulos
+                                            funcionales.
+                                        </li>
+                                        <li>
+                                            <strong>Evaluación asistida:</strong> análisis de logs y rendimiento con IA,
+                                            generando reportes de mejora.
+                                        </li>
+                                        <li>
+                                            <strong>Optimización y documentación:</strong> ajustes en performance,
+                                            consumo y
+                                            documentación autogenerada.
+                                        </li>
+                                    </ol>
+                                </div>
+                                <p class="process-text">
+                                    El resultado es un sistema de desarrollo <strong>inteligente, trazable y
+                                        evolutivo</strong>, con aprendizaje continuo entre iteraciones.
+                                </p>
+                            </section>
+
+                            <!-- Resumen -->
+                            <section class="process-section">
+                                <h2 class="process-title">Resumen</h2>
+                                <p class="process-text">
+                                    Mi metodología integra:
+                                </p>
+                                <ul class="process-summary-list">
+                                    <li>Prototipado modular e iterativo</li>
+                                    <li>Automatización total desde terminal</li>
+                                    <li>Análisis y asistencia continua con IA</li>
+                                    <li>Depuración distribuida y documentación automática</li>
+                                </ul>
+                                <p class="process-text">
+                                    Un proceso diseñado para <strong>acelerar el desarrollo, mejorar la calidad del
+                                        código y
+                                        mantener trazabilidad completa</strong> en entornos embebidos, IoT y sistemas
+                                    distribuidos.
+                                </p>
+                            </section>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-section" id="about">
-                <div class="about-container">
-                    <div class="about-content">
-                        <!-- Perfil Profesional -->
-                        <section class="about-section">
-                            <h2 class="about-title">Perfil Profesional</h2>
-                            <p class="about-text">
-                                Soy <strong>Bernard</strong>, Ingeniero Electrónico con enfoque en <strong>desarrollo embebido, automatización y sistemas distribuidos</strong>.
-                                Integro <strong>hardware, software y datos</strong> para crear <strong>soluciones modulares, eficientes y reproducibles</strong>, aplicables tanto a entornos industriales como de investigación.
-                            </p>
-                            <p class="about-text">
-                                Mi enfoque combina <strong>precisión técnica</strong>, <strong>eficiencia energética</strong> y <strong>claridad visual</strong>, buscando que cada componente —desde el sensor hasta la interfaz web— se comunique con fluidez y propósito.
-                            </p>
-                        </section>
-
-                        <!-- Competencias Técnicas -->
-                        <section class="about-section">
-                            <h2 class="about-title">Competencias Técnicas</h2>
-                            <div class="skills-grid">
-                                <div class="skill-category">
-                                    <h3 class="skill-category-title">Productividad / Colaboración</h3>
-                                    <p class="skill-items">Microsoft Office · Slack · OnlyOffice · Notion · Obsidian</p>
-                                </div>
-                                <div class="skill-category">
-                                    <h3 class="skill-category-title">Lenguajes / Embedded</h3>
-                                    <p class="skill-items"><strong>C (95%)</strong> · Python (85%) · JavaScript (70%) · Bash (60%) · Fish (50%)</p>
-                                </div>
-                                <div class="skill-category">
-                                    <h3 class="skill-category-title">Microcontroladores / IoT</h3>
-                                    <p class="skill-items">PIC · ESP32 · Arduino · Raspberry Pi · MQTT · Node-RED · I2C/SPI</p>
-                                </div>
-                                <div class="skill-category">
-                                    <h3 class="skill-category-title">Frontend</h3>
-                                    <p class="skill-items">HTML5 · CSS3 (Flex/Grid) · Animaciones · UI responsive</p>
-                                </div>
-                                <div class="skill-category">
-                                    <h3 class="skill-category-title">Backend / AI</h3>
-                                    <p class="skill-items">FastAPI · Flask · TensorFlow Lite · OpenAI API · Claude API</p>
-                                </div>
-                                <div class="skill-category">
-                                    <h3 class="skill-category-title">Dev Tools</h3>
-                                    <p class="skill-items">Git · VSCode · Cursor IDE · Garuda Linux · Hyprland · Fish Shell</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Experiencia -->
-                        <section class="about-section">
-                            <h2 class="about-title">Experiencia y Proyectos</h2>
-                            <div class="experience-item">
-                                <h3 class="experience-title">Sistemas IoT y Protocolos de Comunicación</h3>
+                <div class="content-section" id="about">
+                    <div class="about-container">
+                        <div class="about-content">
+                            <!-- Perfil Profesional -->
+                            <section class="about-section">
+                                <h2 class="about-title">Perfil Profesional</h2>
                                 <p class="about-text">
-                                    Diseño e implementación de <strong>sistemas distribuidos de sensores y nodos inteligentes</strong>, utilizando microcontroladores y arquitecturas minimalistas <strong>tipo edge</strong> que permiten centralizar y procesar datos eficientemente.
+                                    Soy <strong>Bernard</strong>, Ingeniero Electrónico con enfoque en
+                                    <strong>desarrollo
+                                        embebido, automatización y sistemas distribuidos</strong>.
+                                    Integro <strong>hardware, software y datos</strong> para crear <strong>soluciones
+                                        modulares, eficientes y reproducibles</strong>, aplicables tanto a entornos
+                                    industriales como de investigación.
                                 </p>
-                            </div>
-                            <div class="experience-item">
-                                <h3 class="experience-title">Desarrollo Web y Automatización</h3>
                                 <p class="about-text">
-                                    Diseño de <strong>dashboards y sitios técnicos</strong> orientados a <strong>visualización de datos provenientes de sistemas distribuidos</strong>. Automatización de flujos y despliegues con scripts personalizados.
+                                    Mi enfoque combina <strong>precisión técnica</strong>, <strong>eficiencia
+                                        energética</strong> y <strong>claridad visual</strong>, buscando que cada
+                                    componente
+                                    —desde el sensor hasta la interfaz web— se comunique con fluidez y propósito.
                                 </p>
-                            </div>
-                        </section>
+                            </section>
 
-                        <!-- Filosofía -->
-                        <section class="about-section">
-                            <h2 class="about-title">Filosofía de Trabajo</h2>
-                            <blockquote class="philosophy-quote">
-                                "La elegancia está en hacer que lo complejo parezca simple."
-                            </blockquote>
-                            <ul class="philosophy-list">
-                                <li>Simplicidad funcional</li>
-                                <li>Legibilidad de código</li>
-                                <li>Reutilización de componentes</li>
-                                <li>Visuales que comuniquen, no que distraigan</li>
-                            </ul>
-                        </section>
+                            <!-- Competencias Técnicas -->
+                            <section class="about-section">
+                                <h2 class="about-title">Competencias Técnicas</h2>
+                                <div class="skills-grid">
+                                    <div class="skill-category">
+                                        <h3 class="skill-category-title">Productividad / Colaboración</h3>
+                                        <p class="skill-items">Microsoft Office · Slack · OnlyOffice · Notion · Obsidian
+                                        </p>
+                                    </div>
+                                    <div class="skill-category">
+                                        <h3 class="skill-category-title">Lenguajes / Embedded</h3>
+                                        <p class="skill-items"><strong>C (95%)</strong> · Python (85%) · JavaScript
+                                            (70%) ·
+                                            Bash (60%) · Fish (50%)</p>
+                                    </div>
+                                    <div class="skill-category">
+                                        <h3 class="skill-category-title">Microcontroladores / IoT</h3>
+                                        <p class="skill-items">PIC · ESP32 · Arduino · Raspberry Pi · MQTT · Node-RED ·
+                                            I2C/SPI</p>
+                                    </div>
+                                    <div class="skill-category">
+                                        <h3 class="skill-category-title">Frontend</h3>
+                                        <p class="skill-items">HTML5 · CSS3 (Flex/Grid) · Animaciones · UI responsive
+                                        </p>
+                                    </div>
+                                    <div class="skill-category">
+                                        <h3 class="skill-category-title">Backend / AI</h3>
+                                        <p class="skill-items">FastAPI · Flask · TensorFlow Lite · OpenAI API · Claude
+                                            API
+                                        </p>
+                                    </div>
+                                    <div class="skill-category">
+                                        <h3 class="skill-category-title">Dev Tools</h3>
+                                        <p class="skill-items">Git · VSCode · Cursor IDE · Garuda Linux · Hyprland ·
+                                            Fish
+                                            Shell</p>
+                                    </div>
+                                </div>
+                            </section>
 
-                        <!-- Stack Personal -->
-                        <section class="about-section">
-                            <h2 class="about-title">Stack Personal</h2>
-                            <div class="stack-info">
-                                <p><strong>SO:</strong> Garuda Linux x86_64 · Hyprland</p>
-                                <p><strong>Terminal:</strong> Fish 4.1.2 + Foot 1.25</p>
-                                <p><strong>Hardware:</strong> AMD Ryzen 5 5600G · Radeon Vega · 16GB RAM</p>
-                            </div>
-                        </section>
+                            <!-- Experiencia -->
+                            <section class="about-section">
+                                <h2 class="about-title">Experiencia y Proyectos</h2>
+                                <div class="experience-item">
+                                    <h3 class="experience-title">Sistemas IoT y Protocolos de Comunicación</h3>
+                                    <p class="about-text">
+                                        Diseño e implementación de <strong>sistemas distribuidos de sensores y nodos
+                                            inteligentes</strong>, utilizando microcontroladores y arquitecturas
+                                        minimalistas <strong>tipo edge</strong> que permiten centralizar y procesar
+                                        datos
+                                        eficientemente.
+                                    </p>
+                                </div>
+                                <div class="experience-item">
+                                    <h3 class="experience-title">Desarrollo Web y Automatización</h3>
+                                    <p class="about-text">
+                                        Diseño de <strong>dashboards y sitios técnicos</strong> orientados a
+                                        <strong>visualización de datos provenientes de sistemas distribuidos</strong>.
+                                        Automatización de flujos y despliegues con scripts personalizados.
+                                    </p>
+                                </div>
+                            </section>
 
-                        <!-- Contacto -->
-                        <section class="about-section">
-                            <h2 class="about-title">Contacto</h2>
-                            <div class="contact-links">
-                                <a href="mailto:bernardlab.dev@gmail.com" class="contact-link">📧 bernardlab.dev@gmail.com</a>
-                                <a href="https://linkedin.com/in/baernard-dev" target="_blank" class="contact-link">🔗 LinkedIn</a>
-                                <a href="https://github.com/MarcosBernardC" target="_blank" class="contact-link">💾 GitHub</a>
-                            </div>
-                        </section>
+                            <!-- Filosofía -->
+                            <section class="about-section">
+                                <h2 class="about-title">Filosofía de Trabajo</h2>
+                                <blockquote class="philosophy-quote">
+                                    "La elegancia está en hacer que lo complejo parezca simple."
+                                </blockquote>
+                                <ul class="philosophy-list">
+                                    <li>Simplicidad funcional</li>
+                                    <li>Legibilidad de código</li>
+                                    <li>Reutilización de componentes</li>
+                                    <li>Visuales que comuniquen, no que distraigan</li>
+                                </ul>
+                            </section>
+
+                            <!-- Stack Personal -->
+                            <section class="about-section">
+                                <h2 class="about-title">Stack Personal</h2>
+                                <div class="stack-info">
+                                    <p><strong>SO:</strong> Garuda Linux x86_64 · Hyprland</p>
+                                    <p><strong>Terminal:</strong> Fish 4.1.2 + Foot 1.25</p>
+                                    <p><strong>Hardware:</strong> AMD Ryzen 5 5600G · Radeon Vega · 16GB RAM</p>
+                                </div>
+                            </section>
+
+                            <!-- Contacto -->
+                            <section class="about-section">
+                                <h2 class="about-title">Contacto</h2>
+                                <div class="contact-links">
+                                    <a href="mailto:bernardlab.dev@gmail.com" class="contact-link">📧
+                                        bernardlab.dev@gmail.com</a>
+                                    <a href="https://linkedin.com/in/baernard-dev" target="_blank"
+                                        class="contact-link">🔗
+                                        LinkedIn</a>
+                                    <a href="https://github.com/MarcosBernardC" target="_blank" class="contact-link">💾
+                                        GitHub</a>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-section" id="contact">
-                <div class="placeholder-image">
-                    <p>Contacto...</p>
+                <div class="content-section" id="contact">
+                    <div class="placeholder-image">
+                        <p>Contacto...</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    
-    <script src="js/main.js"></script>
+
+
+        <!-- Modal Agenda -->
+        <div id="agenda-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeAgenda()">&times;</button>
+                <h3 class="modal-title" id="modal-project-title">Project Agenda</h3>
+                <div class="timeline" id="modal-timeline">
+                    <!-- Content injected via JS -->
+                </div>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
 </body>
+
 </html>
