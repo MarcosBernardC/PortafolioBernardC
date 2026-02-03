@@ -131,9 +131,13 @@ function toggleDetails(button) {
 }
 
 function toggleLegend() {
+    const wrapper = document.querySelector('.projects-wrapper');
     const legend = document.getElementById('global-legend');
     const button = document.querySelector('.legend-toggle');
     const icon = button.querySelector('i:last-child');
+
+    // Toggle wrapper state for scaling effect
+    if (wrapper) wrapper.classList.toggle('legend-open');
 
     legend.classList.toggle('active');
     button.classList.toggle('active');
