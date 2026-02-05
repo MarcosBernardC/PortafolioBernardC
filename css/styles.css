@@ -98,8 +98,11 @@ body {
 /* ========================================
    Menu
    ======================================== */
+/* Ajuste para el menú si el botón lo empuja mucho */
 .menu {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Por si el espacio es poco en pantallas pequeñas */
     gap: 28px;
 }
 
@@ -148,9 +151,40 @@ body {
     font-weight: 600;
 }
 
+/* Estilo para el botón de CV en el header */
+.cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 15px;
+    background-color: var(--dark-charcoal); /* O un color que resalte */
+    color: var(--pure-white) !important;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-left: 20px; /* Separación de los items del menú */
+    border: 1px solid transparent;
+}
+
+.cv-button:hover {
+    background-color: transparent;
+    color: var(--dark-charcoal) !important;
+    border-color: var(--dark-charcoal);
+    transform: translateY(-2px);
+}
+
 /* ========================================
    Content / Hero
    ======================================== */
+.home-hero-actions {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    margin-top: 30px;        /* El \vspace{30px} para separarlo del texto superior */
+    margin-bottom: -20px;     /* Separación con la siguiente sección (Trayectoria) */
+}
+
 .content-container {
     width: 100%;
     height: 100%;
