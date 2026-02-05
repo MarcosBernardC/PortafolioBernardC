@@ -700,3 +700,402 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* ============================================
+   PROCESS SECTION STYLES (Tema claro coherente)
+   ============================================ */
+
+/* Variables de color para las fases (ajustadas a tu paleta) */
+:root {
+    --mvp-color: #059669;      /* Verde esmeralda */
+    --spiral-color: #2563eb;   /* Azul cobalto */
+    --vmodel-color: #7c3aed;   /* Púrpura */
+}
+
+/* Contenedor principal de PROCESS */
+.process-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header de la sección */
+.process-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.process-main-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--mvp-color), var(--spiral-color), var(--vmodel-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+.process-subtitle {
+    font-family: "Inter", sans-serif;
+    font-size: 1.1rem;
+    color: var(--slate-gray);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.process-update {
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    color: var(--slate-gray);
+    opacity: 0.8;
+}
+
+/* Quote inspiracional */
+.process-quote {
+    background: linear-gradient(145deg, var(--pure-white), var(--light-cream));
+    border-left: 4px solid var(--vmodel-color);
+    padding: 25px 30px;
+    margin: 40px auto;
+    max-width: 900px;
+    font-style: italic;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    color: var(--dark-charcoal);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Texto introductorio */
+.process-intro {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 900px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--slate-gray);
+    font-family: "Inter", sans-serif;
+}
+
+/* Timeline vertical de fases */
+.phases-timeline {
+    position: relative;
+    padding: 40px 0;
+    margin: 60px 0;
+}
+
+.phases-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        var(--mvp-color) 0%, 
+        var(--mvp-color) 33%, 
+        var(--spiral-color) 33%, 
+        var(--spiral-color) 66%, 
+        var(--vmodel-color) 66%, 
+        var(--vmodel-color) 100%
+    );
+    transform: translateX(-50%);
+}
+
+.phase-item {
+    display: flex;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.phase-item:last-child {
+    margin-bottom: 0;
+}
+
+.phase-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.phase-content {
+    width: 45%;
+    background: linear-gradient(145deg, var(--pure-white), var(--light-cream));
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.05),
+        0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: all 0.3s ease;
+}
+
+.phase-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.phase-item:nth-child(even) .phase-content {
+    margin-left: auto;
+}
+
+/* Iconos centrales de las fases */
+.phase-icon {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 4px solid var(--pure-white);
+}
+
+.phase-1 .phase-icon { 
+    background: linear-gradient(135deg, var(--mvp-color), #10b981);
+}
+
+.phase-2 .phase-icon { 
+    background: linear-gradient(135deg, var(--spiral-color), #3b82f6);
+}
+
+.phase-3 .phase-icon { 
+    background: linear-gradient(135deg, var(--vmodel-color), #8b5cf6);
+}
+
+/* Badges de número de fase */
+.phase-number {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: "Inter", sans-serif;
+}
+
+.phase-1 .phase-number { 
+    background-color: rgba(5, 150, 105, 0.1);
+    color: var(--mvp-color);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.phase-2 .phase-number { 
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--spiral-color);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.phase-3 .phase-number { 
+    background-color: rgba(124, 58, 237, 0.1);
+    color: var(--vmodel-color);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+/* Títulos y objetivos de fase */
+.phase-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 10px 0 15px 0;
+    color: var(--dark-charcoal);
+    letter-spacing: -0.01em;
+}
+
+.phase-objective {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    color: var(--slate-gray);
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Lista de detalles de cada fase */
+.phase-details {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.phase-details li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--slate-gray);
+    font-family: "Inter", sans-serif;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.phase-details li:hover {
+    border-left-color: var(--lighter-gray);
+    padding-left: 32px;
+}
+
+.phase-details li::before {
+    content: '▸';
+    position: absolute;
+    left: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.phase-1 .phase-details li::before { 
+    color: var(--mvp-color);
+}
+
+.phase-2 .phase-details li::before { 
+    color: var(--spiral-color);
+}
+
+.phase-3 .phase-details li::before { 
+    color: var(--vmodel-color);
+}
+
+.phase-details li strong {
+    color: var(--dark-charcoal);
+    font-weight: 600;
+}
+
+/* Sección de Tooling */
+.tooling-section {
+    margin-top: 80px;
+    background: linear-gradient(145deg, var(--pure-white), var(--light-cream));
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.05),
+        0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.tooling-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--dark-charcoal);
+}
+
+.tooling-intro {
+    text-align: center;
+    margin-bottom: 35px;
+    color: var(--slate-gray);
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+}
+
+.tooling-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--spiral-color);
+    border: 1px solid var(--border-gray);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.tool-card:hover {
+    background: var(--pure-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.08);
+    border-left-color: var(--mvp-color);
+}
+
+.tool-card h4 {
+    margin: 0 0 12px 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--dark-charcoal);
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
+
+.tool-card h4 i {
+    color: var(--spiral-color);
+    font-size: 1.3rem;
+}
+
+.tool-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--slate-gray);
+    line-height: 1.6;
+    font-family: "Inter", sans-serif;
+}
+
+.tool-card p strong {
+    color: var(--dark-charcoal);
+    font-weight: 600;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .phases-timeline::before {
+        left: 30px;
+    }
+
+    .phase-item,
+    .phase-item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .phase-content {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-top: 40px;
+    }
+
+    .phase-icon {
+        left: 30px;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .process-main-title {
+        font-size: 2rem;
+    }
+
+    .phase-title {
+        font-size: 1.3rem;
+    }
+
+    .tooling-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-container {
+        padding: 20px 15px;
+    }
+
+    .process-quote,
+    .process-intro {
+        padding: 20px;
+        font-size: 1rem;
+    }
+}

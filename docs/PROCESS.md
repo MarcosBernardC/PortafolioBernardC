@@ -1,66 +1,58 @@
-## 🛠️ PROCESS – Prototipado Iterativo + Automatización Inteligente  
+# ⚙️ Process – Metodología de Ingeniería
 
-### **Metodología de trabajo**
-
-Mi proceso combina **prototipado iterativo, automatización total y asistencia con IA**, orientado a lograr desarrollos reproducibles, eficientes y escalables.  
-Cada módulo —hardware, firmware o software— se desarrolla de forma independiente, validando funcionalidad, rendimiento y trazabilidad desde la terminal.
-
-- **Iterativo y modular:** desarrollo por etapas, integrando progresivamente módulos validados.  
-- **Automatización desde terminal:** compilación, test y backup gestionados con **Fish + Makefiles**, minimizando errores manuales.  
-- **Asistencia con IA:** uso de modelos como **GPT, Claude y TensorFlow Lite** para generación de código base, análisis de logs, optimización de estructuras y documentación automática.  
-- **Registro y depuración remota:** monitoreo continuo vía **UART + Python**, con detección temprana de fallas en nodos distribuidos.  
-- **Optimización de recursos:** revisión periódica del uso de **memoria, buffers y flags de compilación**.  
-- **Documentación automatizada:** integración con **Git/GitHub** para versionado, changelogs y registro de iteraciones con commits trazables y descriptivos.
+**📅 Última actualización:** 5 de febrero de 2026
+**🧭 Estado:** Framework de Maduración Híbrido (v1.1)
 
 ---
 
-### **Flujo de trabajo – Ejemplo Integrado (PIC16F1939 + ESP32 + IA de apoyo)**
+## 🧭 Visión General: El Metamodelo de Maduración
 
-En proyectos combinados, como un sistema embebido PIC16F1939 + ESP32, la IA se utiliza para **asistir en la depuración y análisis de rendimiento**.  
-El flujo general incluye:
-
-1. **Build automatizado:** scripts en Fish ejecutan compilación y respaldo sin intervención manual.  
-2. **Validación distribuida:** monitoreo UART/I²C con registro automático de eventos y alertas.  
-3. **Asistencia inteligente:** la IA analiza logs, sugiere ajustes en el código o parámetros de compilación y genera reportes técnicos.  
-4. **Documentación viva:** Git registra cada iteración con resúmenes generados automáticamente por IA, manteniendo trazabilidad total del proyecto.
+Mi metodología no es lineal; es una progresión de tres estados que garantiza la transición exitosa desde la idea en el silicio hasta la estandarización industrial. Este flujo fue validado durante el desarrollo de mi tesis para la integración eficiente de Hardware, Firmware y Software.
 
 ---
 
-### **Ventajas del enfoque**
+## 🟢 Fase 1: Prototipado Iterativo (MVP)
 
-| Ventaja               | Implementación clave                                              |
-| ---------------------- | ----------------------------------------------------------------- |
-| **Rapidez**            | Iteraciones cortas y asistidas por IA para depuración y análisis |
-| **Reproducibilidad**   | Scripts y Makefiles con builds consistentes                      |
-| **Debug remoto**       | Logs automáticos y alertas en tiempo real                        |
-| **Optimización**       | Ajustes inteligentes en compilación y uso de memoria             |
-| **Flexibilidad**       | Flujo adaptable a distintos microcontroladores y entornos Linux  |
-| **Documentación viva** | Commit, changelog y resumen generados automáticamente            |
-| **Asistencia IA**      | Generación de código base, revisión de eficiencia y predicción de fallas |
+**Objetivo:** Validación técnica de concepto al menor costo posible.
+
+- **Metodología:** Ciclos rápidos de diseño, implementación y prueba (Iterative Prototyping).
+- **Herramientas:** Uso de herramientas Gratuitas / Open Source para minimizar la inversión inicial.
+- **Hardware/Firmware:** Prototipado en PIC16F1939 con periféricos nativos (MSSP, I2C, Timer0).
+- **Estrategia:** Enfoque en la funcionalidad crítica (Happy Path) y la comunicación de extremo a extremo (Edge-to-Cloud).
 
 ---
 
-### **Evolución hacia el Modelo Espiral Inteligente**
+## 🔵 Fase 2: Desarrollo de Campo (Modelo Espiral)
 
-La integración del **modelo espiral** potencia el proceso actual, combinando iteración técnica con análisis de riesgo asistido por IA.  
-Cada ciclo incorpora validación automática y generación de conocimiento incremental.
+**Objetivo:** Análisis de riesgos, viabilidad económica y robustez.
 
-**Ciclo operativo:**
-1. **Planificación inteligente:** definición de objetivos, riesgos y métricas asistida por IA.  
-2. **Prototipado automatizado:** generación y compilación de módulos funcionales.  
-3. **Evaluación asistida:** análisis de logs y rendimiento con IA, generando reportes de mejora.  
-4. **Optimización y documentación:** ajustes en performance, consumo y documentación autogenerada.  
-
-El resultado es un sistema de desarrollo **inteligente, trazable y evolutivo**, con aprendizaje continuo entre iteraciones.
+- **Metodología:** Aplicación del Modelo Espiral para evaluar cada iteración del MVP.
+- **Acción de Ingeniería:** Evaluación de **Costo / Beneficio** de las tecnologías utilizadas en el prototipo.
+- **Análisis Crítico:** ¿Las soluciones gratuitas son escalables? ¿El ruido industrial del campo requiere migrar a componentes de grado profesional o cambio de arquitectura?
+- **Hardware:** Optimización de consumo energético y diseño de PCB profesional en KiCad.
 
 ---
 
-### **Resumen**
+## 🟣 Fase 3: Estandarización (V-Modell XT)
 
-Mi metodología integra:
-- **Prototipado modular e iterativo**  
-- **Automatización total desde terminal**  
-- **Análisis y asistencia continua con IA**  
-- **Depuración distribuida y documentación automática**
+**Objetivo:** Calidad industrial, verificación formal y cierre de proyecto.
 
-Un proceso diseñado para **acelerar el desarrollo, mejorar la calidad del código y mantener trazabilidad completa** en entornos embebidos, IoT y sistemas distribuidos.
+- **Metodología:** Implementación del estándar **V-Modell XT** para asegurar la trazabilidad total del dato.
+- **Verificación y Validación (V&V):** Cada requerimiento de diseño es validado sistemáticamente (desde el bit en el registro hasta la gráfica en el Dashboard).
+- **Documentación:** Generación de manuales técnicos, certificados de funcionamiento y hojas de datos en **LuaLaTeX**.
+- **Resultado:** Un producto reproducible, documentado y listo para despliegue masivo.
+
+---
+
+## 💻 Entorno de Ejecución (Tooling)
+
+La eficiencia de este proceso se apoya en una automatización profunda dentro de mi ecosistema Linux:
+
+1. **Automatización:** Uso de **Fish Shell** y **Makefiles** para flujos de compilación y quemado (`pk2cmd`) sin intervención manual.
+2. **IA Asistida:** Integración de **Antigravity** y **Cursor** para refactorización de código y análisis de lógica en tiempo real.
+3. **Control de Versiones:** Gestión consciente de estados de archivos en Git para mantener un historial de cambios granular durante las fases del modelo espiral.
+4. **Documentación Viva:** Sincronización entre **Obsidian** (notas de ingeniería) y el repositorio central del proyecto.
+
+---
+
+> “No diseñamos para que funcione una vez; diseñamos para que sea reproducible, eficiente y resiliente al entorno real.”
