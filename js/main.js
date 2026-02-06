@@ -89,3 +89,52 @@ function toggleLegend() {
     legend.classList.toggle('active');
     button.classList.toggle('active');
 }
+
+// PDF Viewer Logic
+const pdfModal = document.getElementById('pdf-modal');
+const pdfFrame = document.getElementById('pdf-frame');
+const closeBtn = document.querySelector('.pdf-close-btn');
+const resumeBtn = document.getElementById('resume-btn');
+
+function openPDFModal(pdfUrl) {
+    if (pdfModal && pdfFrame) {
+        pdfFrame.src = pdfUrl;
+        pdfModal.classList.add('active');
+        // Disable body scroll safely
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closePDFModal() {
+    if (pdfModal && pdfFrame) {
+        pdfModal.classList.remove('active');
+        // Clear src to stop loading/playing
+        setTimeout(() => { pdfFrame.src = ''; }, 300); 
+        document.body.style.overflow = '';
+    }
+}
+
+if (resumeBtn) {
+    resumeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openPDFModal('assets/Marcos_Bernard_CV.pdf');
+    });
+}
+
+if (closeBtn) {
+    closeBtn.addEventListener('click', closePDFModal);
+}
+
+if (pdfModal) {
+    pdfModal.addEventListener('click', (e) => {
+        if (e.target === pdfModal) {
+            closePDFModal();
+        }
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && pdfModal && pdfModal.classList.contains('active')) {
+        closePDFModal();
+    }
+});

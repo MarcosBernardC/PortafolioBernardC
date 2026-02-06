@@ -28,10 +28,9 @@
         <a href="#" class="menu-item" data-target="process">PROCESS</a>
         <a href="#" class="menu-item" data-target="services">SERVICES</a>
         <a href="#" class="menu-item" data-target="contact">CONTACT</a>
-        
-            <a href="assets/Marcos_Bernard_CV.pdf" class="cv-button" download>
-                <i class="fa-solid fa-file-pdf"></i> RESUME
-            </a>
+        <a href="#" class="cv-button" id="resume-btn">
+            <i class="fa-solid fa-file-pdf"></i> RESUME
+        </a>
         </nav>
     </div>
 
@@ -581,7 +580,15 @@
 
         <!-- Agenda Modal Removed -->
 
-        <script src="js/main.js"></script>
+        <!-- PDF Modal -->
+    <div id="pdf-modal" class="pdf-modal-overlay">
+        <div class="pdf-modal-content">
+            <button class="pdf-close-btn">&times;</button>
+            <iframe id="pdf-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
