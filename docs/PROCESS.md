@@ -16,7 +16,7 @@ Mi metodología no es lineal; es una progresión de tres estados que garantiza l
 **Objetivo:** Validación técnica de concepto al menor costo posible.
 
 - **Metodología:** Ciclos rápidos de diseño, implementación y prueba (Iterative Prototyping).
-- **Herramientas:** Uso de herramientas Gratuitas / Open Source para minimizar la inversión inicial.
+- **Herramientas:** Uso de software Gratuito / Open Source para minimizar la inversión inicial
 - **Hardware/Firmware:** Prototipado en PIC16F1939 con periféricos nativos (MSSP, I2C, Timer0).
 - **Estrategia:** Enfoque en la funcionalidad crítica (Happy Path) y la comunicación de extremo a extremo (Edge-to-Cloud).
 
@@ -28,7 +28,7 @@ Mi metodología no es lineal; es una progresión de tres estados que garantiza l
 
 - **Metodología:** Aplicación del Modelo Espiral para evaluar cada iteración del MVP.
 - **Acción de Ingeniería:** Evaluación de **Costo / Beneficio** de las tecnologías utilizadas en el prototipo.
-- **Análisis Crítico:** ¿Las soluciones gratuitas son escalables? ¿El ruido industrial del campo requiere migrar a componentes de grado profesional o cambio de arquitectura?
+- **Análisis Crítico:** ¿Las soluciones gratuitas son escalables? ¿El ruido industrial requiere componentes de grado profesional?
 - **Hardware:** Optimización de consumo energético y diseño de PCB profesional en KiCad.
 
 ---

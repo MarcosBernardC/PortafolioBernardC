@@ -1,24 +1,36 @@
 ## 🧩 **PROJECTS** – Integración y Desarrollo Embebido
 
+### 🟢 Guía de Fases
+
+- **FASE 1: MVP**: Prototipo funcional de bajo costo. Validación de concepto con herramientas Open Source.
+- **FASE 2: SPIRAL**: Desarrollo iterativo de campo. Análisis de viabilidad técnica y económica.
+- **FASE 3: V-MODEL**: Estandarización y calidad industrial. Trazabilidad total y pruebas formales.
+
 ### **Proyecto 1: AgriNode Lite (Electrónica)**
 
-**Objetivo:** Medir variables agroambientales con un nodo sensor.
+**Estado:** MVP (35%)
+**Badges:** C, UART, I2C
+
+**Objetivo:** Nodo IoT de sensado agroambiental.
+
+**Checklist de Progreso:**
+
+- [x] Diseño Esquemático (Ene 15)
+- [x] Validación Sensores (Ene 20)
+- [ ] Optimización Energía (Pendiente)
+- [ ] Documentación (--)
 
 **Detalles:**
 
-* **Microcontrolador:** PIC16F1939
-    
-- **Sensores:** Temperatura (DHT22 o DS18B20), humedad del suelo (YL-69 o capacitivo), luz (BH1750)
-    
-- **Comunicación:** UART/Serial (para luego conectarlo a la PC)
-    
-- **Salida:** Datos en consola serial
-    
+- **Microcontrolador:** PIC16F1939
+
+* **Sensores:** Temperatura (DHT22 o DS18B20), humedad del suelo (YL-69 o capacitivo), luz (BH1750)
+* **Comunicación:** UART/Serial (para luego conectarlo a la PC)
+* **Salida:** Datos en consola serial
 
 **Extras opcionales:**
-    
+
 - Alimentación con batería + regulador (3.3V o 5V según sensor)
-    
 
 **Valor:** Refuerza conceptos de electrónica, sensores y comunicación serial.
 
@@ -31,28 +43,18 @@
 **Stack:**
 
 - **Lenguaje:** Python
-    
 - **GUI:** PyQt6
-    
 - **Comunicación:** pyserial para leer datos del nodo
-    
 - **Funcionalidades:**
-    
-    - Conexión/desconexión al puerto serial
-        
-    - Visualización en tiempo real de temperatura, humedad y luz
-        
-    - Registro de datos en CSV local
-        
-    - Alertas visuales si alguna variable supera un umbral
-        
+  - Conexión/desconexión al puerto serial
+  - Visualización en tiempo real de temperatura, humedad y luz
+  - Registro de datos en CSV local
+  - Alertas visuales si alguna variable supera un umbral
 
 **Extras opcionales:**
 
 - Gráficos en tiempo real con matplotlib o pyqtgraph
-    
 - Guardar configuraciones de umbrales
-    
 
 **Valor:** Consolidar habilidades en GUI, comunicación serial y manejo básico de datos.
 
@@ -65,23 +67,15 @@
 **Stack sugerido:**
 
 - **Base de datos:** PostgreSQL (local o free-tier en Heroku, Supabase, Railway)
-    
 - **Backend:** Python (FastAPI o Flask)
-    
 - **Frontend:** HTML + CSS + JS básico (o un dashboard simple con Plotly Dash)
-    
 - **Flujo:**
-    
-    1. Nodo envía datos → script Python en PC → API → PostgreSQL
-        
-    2. Web dashboard consulta la base de datos → visualiza en gráficos
-        
+  1. Nodo envía datos → script Python en PC → API → PostgreSQL
+  2. Web dashboard consulta la base de datos → visualiza en gráficos
 
 **Extras opcionales:**
 
 - Alertas por correo o Telegram si algún sensor está fuera de rango
-    
 - Filtrado de datos por fechas, promedios diarios, exportación CSV
-    
 
 **Valor:** Integración de electrónica, software y cloud. Aprendizaje completo de stack, bases de datos, API y dashboards.
