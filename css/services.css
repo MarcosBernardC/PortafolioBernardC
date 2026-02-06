@@ -1,0 +1,11 @@
+/* ========================================
+   Services Section
+   ======================================== */
+/* Reuses .home-block, .impact-grid, .impact-card from global.css */
+
+.process-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--slate-gray);
+    text-align: justify;
+}

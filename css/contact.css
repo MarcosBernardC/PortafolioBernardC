@@ -1,0 +1,19 @@
+/* ========================================
+   Contact Section
+   ======================================== */
+.contact-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-link-card {
+    text-decoration: none;
+    display: block;
+}
+
+.contact-link-card:hover {
+    border-color: var(--accent-blue);
+    cursor: pointer;
+}
