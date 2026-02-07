@@ -471,36 +471,57 @@
                         Estoy disponible para colaborar.
                     </p>
 
-                    <div class="impact-grid">
+                    <div class="contact-grid">
+                        <!-- Top Row: GitHub -->
                         <a href="https://github.com/MarcosBernardC" target="_blank"
-                            class="impact-card contact-link-card">
+                            class="impact-card contact-link-card contact-info-card">
                             <div class="impact-icon-wrap">
                                 <i class="fa-brands fa-github"></i>
                             </div>
-                            <h3 class="impact-card-title">GitHub</h3>
-                            <p class="impact-card-text">@MarcosBernardC</p>
-                            <span class="badge" style="margin-top: 10px;">Ver Repositorios</span>
-                        </a>
-
-                        <a href="mailto:marcosbernardcalixto@gmail.com" class="impact-card contact-link-card">
-                            <div class="impact-icon-wrap">
-                                <i class="fa-solid fa-envelope"></i>
+                            <div class="contact-info-content">
+                                <h3 class="impact-card-title">GitHub</h3>
+                                <p class="impact-card-text">@MarcosBernardC</p>
                             </div>
-                            <h3 class="impact-card-title">Email</h3>
-                            <p class="impact-card-text">marcosbernardcalixto@gmail.com</p>
-                            <span class="badge" style="margin-top: 10px;">Escríbeme</span>
                         </a>
 
-                        <div class="impact-card">
+                        <!-- Top Row: Location -->
+                        <div class="impact-card contact-info-card">
                             <div class="impact-icon-wrap">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
-                            <h3 class="impact-card-title">Ubicación</h3>
-                            <p class="impact-card-text">Monterrico, Lima - Perú</p>
-                            <span class="tag-active"
-                                style="display: inline-block; margin-top: 10px; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">Remoto
-                                / Presencial</span>
+                            <div class="contact-info-content">
+                                <h3 class="impact-card-title">Ubicación</h3>
+                                <p class="impact-card-text">Monterrico, Lima - Perú</p>
+                            </div>
                         </div>
+
+                        <!-- Bottom Row: Form -->
+                        <form action="https://formspree.io/f/XXXXX" method="POST" class="impact-card contact-form-card">
+                            <h3 class="impact-card-title form-title">Envíame un Mensaje</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="sr-only">Nombre</label>
+                                    <input type="text" id="name" name="name" placeholder="Tu Nombre" required class="form-input">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="sr-only">Email</label>
+                                    <input type="email" id="email" name="_replyto" placeholder="tu@email.com" required class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="sr-only">Mensaje</label>
+                                <textarea id="message" name="message" rows="3" placeholder="¿Cómo puedo ayudarte?" required class="form-input"></textarea>
+                            </div>
+
+                            <div class="form-footer">
+                                <button type="submit" class="cv-button submit-btn">
+                                    <i class="fa-solid fa-paper-plane"></i> ENVIAR MENSAJE
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
