@@ -14,8 +14,9 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Changed from center to allow top alignment on scroll */
   padding: 20px 0;
+  overflow-y: auto; /* Ensure it scrolls if needed */
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -380,4 +381,12 @@
   background-color: rgba(139, 92, 246, 0.1);
   color: #7c3aed;
   border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+    }
 }

@@ -284,8 +284,8 @@
 @media (max-width: 480px) {
     .about-container {
         width: 95%;
-        height: 75%;
-        padding: 20px 18px;
+        height: 98%; /* Maximize usage */
+        padding: 20px 16px; /* Reduced side padding */
     }
     .about-section {
         margin-bottom: 35px;

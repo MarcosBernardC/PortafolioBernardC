@@ -354,7 +354,7 @@
 @media (max-width: 480px) {
     .process-container {
         width: 95%;
-        height: 75%;
-        padding: 20px 18px;
+        height: 98%;
+        padding: 20px 16px;
     }
 }
