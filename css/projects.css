@@ -15,6 +15,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-start; /* Changed from center to allow top alignment on scroll */
+  flex-wrap: wrap;
+  gap: 40px;
   padding: 20px 0;
   overflow-y: auto; /* Ensure it scrolls if needed */
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -58,9 +60,11 @@
 .card-icon {
   font-size: 2rem;
   color: var(--dark-charcoal);
-  background: -webkit-linear-gradient(135deg,
-      var(--dark-charcoal),
-      var(--slate-gray));
+  background: -webkit-linear-gradient(
+    135deg,
+    var(--dark-charcoal),
+    var(--slate-gray)
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -152,10 +156,12 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
   transform: translateX(-100%);
   animation: shimmer 2s infinite;
 }
@@ -207,7 +213,9 @@
   width: 100%;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+  transition:
+    max-height 0.4s ease-out,
+    opacity 0.4s ease-out;
   opacity: 0;
   text-align: left;
   margin-top: 10px;
@@ -248,9 +256,15 @@
   display: inline-block;
 }
 
-.legend-dot.mvp { background-color: #059669; }
-.legend-dot.spiral { background-color: #2563eb; }
-.legend-dot.vmodel { background-color: #7c3aed; }
+.legend-dot.mvp {
+  background-color: #059669;
+}
+.legend-dot.spiral {
+  background-color: #2563eb;
+}
+.legend-dot.vmodel {
+  background-color: #7c3aed;
+}
 
 .legend-item p {
   font-size: 0.8rem;
@@ -306,8 +320,12 @@
   text-align: center;
 }
 
-.checklist-icon.done { color: var(--accent-green); }
-.checklist-icon.pending { color: var(--lighter-gray); }
+.checklist-icon.done {
+  color: var(--accent-green);
+}
+.checklist-icon.pending {
+  color: var(--lighter-gray);
+}
 
 .checklist-text {
   font-weight: 500;
@@ -342,11 +360,17 @@
   color: var(--dark-charcoal);
 }
 
-.details-toggle i { transition: transform 0.3s ease; }
-.details-toggle.active i { transform: rotate(180deg); }
+.details-toggle i {
+  transition: transform 0.3s ease;
+}
+.details-toggle.active i {
+  transform: rotate(180deg);
+}
 
 @keyframes shimmer {
-  100% { transform: translateX(100%); }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 /* Status Badges */
@@ -384,9 +408,9 @@
 }
 
 @media (max-width: 480px) {
-    .project-card {
-        width: 100%;
-        max-width: 340px;
-        margin: 0 auto;
-    }
+  .project-card {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
 }
