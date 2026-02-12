@@ -153,69 +153,152 @@
                     </div>
 
                     <div class="projects-container">
-                        <!-- Card 1: AgriNode Lite -->
                         <div class="project-card">
-                            <div class="status-badge status-mvp">MVP</div>
-                            <div class="card-header">
-                                <i class="fa-solid fa-microchip card-icon"></i>
-                            </div>
-                            <h3 class="card-title">AgriNode Lite</h3>
-                            <p class="card-description">Nodo IoT de sensado agroambiental.</p>
-                            <div class="card-badges">
-                                <span class="badge">C</span>
-                                <span class="badge">UART</span>
-                                <span class="badge">I2C</span>
-                            </div>
+    <div class="status-badge status-mvp">MVP</div>
+    <div class="card-header">
+        <i class="fa-solid fa-microchip card-icon"></i>
+    </div>
+    <h3 class="card-title">AgriNode Lite</h3>
+    <p class="card-description">Nodo IoT de sensado agroambiental.</p>
+    
+    <div style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">
+        <i class="fa-solid fa-flask-vial"></i> Laboratorio IoT (Monterrico, Lima)
+    </div>
 
-                            <div class="progress-section">
-                                <div class="progress-label">
-                                    <span>Progreso</span>
-                                    <span>35%</span>
-                                </div>
-                                <div class="progress-track">
-                                    <div class="progress-fill" style="width: 35%;"></div>
-                                </div>
-                            </div>
+    <div class="card-badges">
+        <span class="badge">C</span>
+        <span class="badge">UART</span>
+        <span class="badge">I2C</span>
+    </div>
 
-                            <!-- Inline Collapsible Checklist -->
-                            <div class="progress-details">
-                                <ul class="checklist">
-                                    <li class="checklist-item">
-                                        <div class="checklist-info">
-                                            <i class="fa-solid fa-check checklist-icon done"></i>
-                                            <span class="checklist-text">Diseño Esquemático</span>
-                                        </div>
-                                        <span class="checklist-date">Ene 15</span>
-                                    </li>
-                                    <li class="checklist-item">
-                                        <div class="checklist-info">
-                                            <i class="fa-solid fa-check checklist-icon done"></i>
-                                            <span class="checklist-text">Validación Sensores</span>
-                                        </div>
-                                        <span class="checklist-date">Ene 20</span>
-                                    </li>
-                                    <li class="checklist-item">
-                                        <div class="checklist-info">
-                                            <i class="fa-regular fa-circle checklist-icon pending"></i>
-                                            <span class="checklist-text">Optimización Energía</span>
-                                        </div>
-                                        <span class="checklist-date">Pendiente</span>
-                                    </li>
-                                    <li class="checklist-item">
-                                        <div class="checklist-info">
-                                            <i class="fa-regular fa-circle checklist-icon pending"></i>
-                                            <span class="checklist-text">Documentación</span>
-                                        </div>
-                                        <span class="checklist-date">--</span>
-                                    </li>
-                                </ul>
-                            </div>
+    <div class="progress-section">
+        <div class="progress-label">
+            <span>Progreso</span>
+            <span>35%</span>
+        </div>
+        <div class="progress-track">
+            <div class="progress-fill" style="width: 35%;"></div>
+        </div>
+    </div>
 
-                            <button class="details-toggle" onclick="toggleDetails(this)">
-                                Ver Detalles <i class="fa-solid fa-chevron-down"></i>
-                            </button>
+    <div class="progress-details">
+        <ul class="checklist">
+            <li class="checklist-item">
+                <div class="checklist-info">
+                    <i class="fa-solid fa-check checklist-icon done"></i>
+                    <span class="checklist-text">Diseño Esquemático</span>
+                </div>
+                <span class="checklist-date">Ene 15</span>
+            </li>
+            <li class="checklist-item">
+                <div class="checklist-info">
+                    <i class="fa-solid fa-check checklist-icon done"></i>
+                    <span class="checklist-text">Validación Sensores</span>
+                </div>
+                <span class="checklist-date">Ene 20</span>
+            </li>
+            <li class="checklist-item">
+                <div class="checklist-info">
+                    <i class="fa-regular fa-circle checklist-icon pending"></i>
+                    <span class="checklist-text">Optimización Energía</span>
+                </div>
+                <span class="checklist-date">Pendiente</span>
+            </li>
+            <li class="checklist-item">
+                <div class="checklist-info">
+                    <i class="fa-regular fa-circle checklist-icon pending"></i>
+                    <span class="checklist-text">Documentación</span>
+                </div>
+                <span class="checklist-date">--</span>
+            </li>
+        </ul>
+
+        <a href="https://github.com/MarcosBernardC/agrinode-lite" target="_blank" class="cv-button" style="margin-top: 15px; text-decoration: none; justify-content: center; width: 100%; box-sizing: border-box; display: flex;">
+            <i class="fa-brands fa-github" style="margin-right: 8px;"></i> VER REPOSITORIO
+        </a>
+    </div>
+
+    <button class="details-toggle" onclick="toggleDetails(this)">
+        Ver Detalles <i class="fa-solid fa-chevron-down"></i>
+    </button>
+</div>
+
+                    <div class="project-card">
+                        <div class="status-badge status-spiral">SPIRAL</div>
+                        
+                        <div class="card-header">
+                            <i class="fa-solid fa-tower-broadcast card-icon"></i>
                         </div>
+
+                        <h3 class="card-title">Edge Computing Agroambiental</h3>
+                        
+                        <p class="card-description">
+                            Sistema distribuido con validación real en Calango. Optimización de latencia y robustez en hardware embebido.
+                        </p>
+
+                        <div style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">
+                            <i class="fa-solid fa-location-dot"></i> Instalación en campo (Calango, Lima 2025)
+                        </div>
+
+                        <div class="card-badges">
+                            <span class="badge">PIC/C</span>
+                            <span class="badge">LuaLaTeX</span>
+                            <span class="badge">PCB Design</span>
+                        </div>
+
+                        <div class="progress-section">
+                            <div class="progress-label">
+                                <span>Estado: Finalizado</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 100%; background: #28a745;"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-details">
+                            <ul class="checklist">
+                                <li class="checklist-item">
+                                    <div class="checklist-info">
+                                        <i class="fa-solid fa-check checklist-icon done"></i>
+                                        <span class="checklist-text">Despliegue e Instalación Física</span>
+                                    </div>
+                                    <span class="checklist-date">Oct 25</span>
+                                </li>
+                                <li class="checklist-item">
+                                    <div class="checklist-info">
+                                        <i class="fa-solid fa-check checklist-icon done"></i>
+                                        <span class="checklist-text">Telemetría App Móvil/Escritorio</span>
+                                    </div>
+                                    <span class="checklist-date">Nov 25</span>
+                                </li>
+                                <li class="checklist-item">
+                                    <div class="checklist-info">
+                                        <i class="fa-solid fa-check checklist-icon done"></i>
+                                        <span class="checklist-text">Análisis de Datos (95% PDR)</span>
+                                    </div>
+                                    <span class="checklist-date">Dic 25</span>
+                                </li>
+                                <li class="checklist-item">
+                                    <div class="checklist-info">
+                                        <i class="fa-solid fa-check checklist-icon done"></i>
+                                        <span class="checklist-text">Versión de Autor (LuaLaTeX)</span>
+                                    </div>
+                                    <span class="checklist-date">Feb 26</span>
+                                </li>
+                            </ul>
+                            
+                            <a href="https://github.com/MarcosBernardC/tesis-edge-computing/blob/main/docs/Tesis_Marcos_Calixto_Autor.pdf" target="_blank" class="cv-button" style="margin-top: 15px; text-decoration: none; justify-content: center; width: 100%; box-sizing: border-box; display: flex;">
+                                <i class="fa-brands fa-github" style="margin-right: 8px;"></i> VER REPOSITORIO
+                            </a>
+                        </div>
+
+                        <button class="details-toggle" onclick="toggleDetails(this)">
+                            Ver Detalles <i class="fa-solid fa-chevron-down"></i>
+                        </button>
                     </div>
+
+                </div>
                 </div>
             </div>
             <div class="content-section" id="services">
