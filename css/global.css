@@ -569,3 +569,147 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* ========================================
+   FIX DEFINITIVO: Espaciado Estandarizado Profesional
+   Agregar al FINAL de css/global.css
+   ======================================== */
+
+/* Variables de Espaciado Profesional */
+:root {
+    --section-gap-desktop: 40px;
+    --section-gap-tablet: 30px;
+    --section-gap-mobile: 20px;
+}
+
+/* SOLUCIÓN BASE: Layout consistente */
+.content-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+/* Espaciado estandarizado para TODOS los paneles */
+.home-panel,
+.services-panel,
+.contact-panel,
+.about-container,
+.process-container {
+    margin: var(--section-gap-desktop) auto;
+}
+
+/* Asegurar centrado perfecto en desktop */
+@media (min-width: 769px) {
+    .image-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--section-gap-desktop) 0;
+    }
+    
+    .content-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .content-section {
+        position: relative;
+        height: auto;
+        min-height: 0;
+    }
+    
+    .content-section:not(.active) {
+        display: none;
+    }
+    
+    /* Ajuste específico para paneles con altura fija */
+    .home-panel,
+    .services-panel {
+        width: 78%;
+        max-width: 1200px;
+    }
+    
+    .about-container,
+    .process-container {
+        width: 85%;
+        max-width: 1200px;
+    }
+}
+
+/* Tablet - Espaciado intermedio */
+@media (max-width: 768px) {
+    :root {
+        --section-gap-desktop: var(--section-gap-tablet);
+    }
+    
+    .image-section {
+        padding: var(--section-gap-tablet) 0;
+    }
+    
+    .home-panel,
+    .services-panel,
+    .about-container,
+    .process-container {
+        margin: var(--section-gap-tablet) auto;
+    }
+}
+
+/* Mobile - Espaciado mínimo */
+@media (max-width: 480px) {
+    :root {
+        --section-gap-desktop: var(--section-gap-mobile);
+    }
+    
+    .image-section {
+        min-height: 85vh;
+        padding: var(--section-gap-mobile) 0;
+    }
+    
+    .content-section {
+        position: relative;
+        height: auto;
+        align-items: flex-start;
+        padding-top: var(--section-gap-mobile);
+    }
+    
+    .content-section.active {
+        position: relative;
+    }
+    
+    .content-section:not(.active) {
+        display: none;
+    }
+    
+    .home-panel,
+    .services-panel,
+    .about-container,
+    .process-container {
+        margin: var(--section-gap-mobile) auto;
+        width: 95%;
+    }
+}
+
+/* Fix específico para Contact que tenía padding-bottom problemático */
+.contact-panel {
+    padding-bottom: 0 !important;
+    margin: var(--section-gap-desktop) auto;
+}
+
+/* Asegurar que Projects no se vea afectado */
+.projects-wrapper {
+    margin: var(--section-gap-desktop) auto;
+}
