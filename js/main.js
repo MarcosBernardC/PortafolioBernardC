@@ -4,7 +4,20 @@ const menuItems = document.querySelectorAll('.menu-item');
 const sections = document.querySelectorAll('.content-section');
 
 // --- Language Switching Logic ---
-let currentLang = localStorage.getItem('portfolio-lang') || 'es';
+const getInitialLanguage = () => {
+    // 1. Check persistence
+    const saved = localStorage.getItem('portfolio-lang');
+    if (saved) return saved;
+
+    // 2. Check browser language (navigator.language)
+    const browserLang = navigator.language || navigator.userLanguage;
+    if (browserLang.startsWith('en')) return 'en';
+    
+    // 3. Default to Spanish
+    return 'es';
+};
+
+let currentLang = getInitialLanguage();
 
 function setLanguage(lang) {
     currentLang = lang;
