@@ -2,8 +2,8 @@
    Projects Section
    ======================================== */
 .projects-wrapper {
-  max-width: 1000px;
-  width: fit-content;
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   padding: 0 20px;
@@ -232,7 +232,7 @@
 
 .legend-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 15px;
   background: var(--pure-white);
   padding: 20px;
@@ -261,6 +261,9 @@
 }
 .legend-dot.spiral {
   background-color: #2563eb;
+}
+.legend-dot.developing {
+  background-color: #f1c40f;
 }
 .legend-dot.vmodel {
   background-color: #7c3aed;
@@ -399,6 +402,12 @@
   background-color: rgba(59, 130, 246, 0.1);
   color: #2563eb;
   border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.status-developing {
+  background-color: rgba(241, 196, 15, 0.15);
+  color: #9a7d0a;
+  border: 1px solid rgba(241, 196, 15, 0.3);
 }
 
 .status-vmodel {
