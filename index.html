@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="html-lang">
 
 <head>
     <meta charset="UTF-8">
@@ -17,19 +17,26 @@
 
 <body>
     <!-- SECCIÓN SUPERIOR ESTÁTICA -->
+    <div class="lang-toggle-fixed">
+        <button id="lang-toggle" class="lang-btn">
+            <i class="fa-solid fa-globe"></i>
+            <span class="lang-text">EN</span>
+        </button>
+    </div>
+
     <div class="header-section">
     <h1 class="title">Marcos Bernard</h1>
     <p class="subtitle">IoT Solutions</p>
     
     <nav class="menu">
-        <a href="#" class="menu-item active" data-target="home">HOME</a>
-        <a href="#" class="menu-item" data-target="about">ABOUT ME</a>
-        <a href="#" class="menu-item" data-target="projects">PROJECTS</a>
-        <a href="#" class="menu-item" data-target="process">PROCESS</a>
-        <a href="#" class="menu-item" data-target="services">SERVICES</a>
-        <a href="#" class="menu-item" data-target="contact">CONTACT</a>
-        <a href="#" class="cv-button" id="resume-btn">
-            <i class="fa-solid fa-file-pdf"></i> RESUME
+        <a href="#" class="menu-item active" data-target="home" data-i18n="menu_home">INICIO</a>
+        <a href="#" class="menu-item" data-target="about" data-i18n="menu_about">SOBRE MÍ</a>
+        <a href="#" class="menu-item" data-target="projects" data-i18n="menu_projects">PROYECTOS</a>
+        <a href="#" class="menu-item" data-target="process" data-i18n="menu_process">PROCESO</a>
+        <a href="#" class="menu-item" data-target="services" data-i18n="menu_services">SERVICIOS</a>
+        <a href="#" class="menu-item" data-target="contact" data-i18n="menu_contact">CONTACTO</a>
+        <a href="#" class="cv-button" id="resume-btn" data-i18n="resume_btn">
+            <i class="fa-solid fa-file-pdf"></i> CV
         </a>
         </nav>
     </div>
@@ -43,21 +50,21 @@
 
                     <!-- HERO -->
                     <div class="home-hero">
-                        <p class="home-hero-phrase">"Transformando la tecnología en soluciones inteligentes."</p>
-                        <p class="home-hero-sub">Innovación, precisión y soluciones IoT a tu medida.</p>
+                        <p class="home-hero-phrase" data-i18n="hero_phrase">"Transformando la tecnología en soluciones inteligentes."</p>
+                        <p class="home-hero-sub" data-i18n="hero_sub">Innovación, precisión y soluciones IoT a tu medida.</p>
                     </div>
 
                     <!-- TRAYECTORIA DE IMPACTO -->
                     <div class="home-block">
-                        <h2 class="home-block-title">Trayectoria de Impacto</h2>
+                        <h2 class="home-block-title" data-i18n="impact_title">Trayectoria de Impacto</h2>
                         <div class="impact-grid">
 
                             <div class="impact-card">
                                 <div class="impact-icon-wrap">
                                     <i class="fa-solid fa-gear"></i>
                                 </div>
-                                <h3 class="impact-card-title">Modernización Industrial</h3>
-                                <p class="impact-card-text">
+                                <h3 class="impact-card-title" data-i18n="industrial_mod_title">Modernización Industrial</h3>
+                                <p class="impact-card-text" data-i18n="industrial_mod_text">
                                     Sustitución de lógica obsoleta por sistemas embebidos <strong>PIC/STM32</strong> en líneas de producción masiva. Implementación de contadores de precisión y sistemas de control adaptados a hardware legacy con enfoque en robustez.
                                 </p>
                             </div>
@@ -66,8 +73,8 @@
                                 <div class="impact-icon-wrap">
                                     <i class="fa-solid fa-network-wired"></i>
                                 </div>
-                                <h3 class="impact-card-title">Optimización de Procesos</h3>
-                                <p class="impact-card-text">
+                                <h3 class="impact-card-title" data-i18n="process_opt_title">Optimización de Procesos</h3>
+                                <p class="impact-card-text" data-i18n="process_opt_text">
                                     Diseño de laboratorio de ONTs desde cero, logrando equiparar la productividad de <strong>50 operarios con un equipo de solo 5 personas</strong> mediante flujos de trabajo por etapas y automatización en <strong>PyQt6</strong>.
                                 </p>
                             </div>
@@ -76,8 +83,8 @@
                                 <div class="impact-icon-wrap">
                                     <i class="fa-solid fa-clipboard-check"></i>
                                 </div>
-                                <h3 class="impact-card-title">Framework de Ingeniería</h3>
-                                <p class="impact-card-text">
+                                <h3 class="impact-card-title" data-i18n="eng_framework_title">Framework de Ingeniería</h3>
+                                <p class="impact-card-text" data-i18n="eng_framework_text">
                                     Aplicación de metodologías <strong>V-Modell XT</strong> y <strong>Modelo Espiral</strong> para garantizar trazabilidad total, reducción de errores post-venta y éxito en transferencias tecnológicas críticas (Salud y Energía).
                                 </p>
                             </div>
@@ -86,35 +93,35 @@
                     </div>
 
                     <div class="home-block">
-                        <h2 class="home-block-title">Historial Laboral</h2>
+                        <h2 class="home-block-title" data-i18n="work_history_title">Historial Laboral</h2>
                         <div class="home-table-wrap">
                             <table class="home-table">
                                 <thead>
                                     <tr>
-                                        <th>Empresa</th>
-                                        <th>Rol Principal</th>
-                                        <th>Periodo</th>
+                                        <th data-i18n="company_header">Empresa</th>
+                                        <th data-i18n="role_header">Rol Principal</th>
+                                        <th data-i18n="period_header">Periodo</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><strong>Redes Ópticas del Perú S.A.C.</strong></td>
-                                        <td>Jefatura Técnica de Lab</td>
+                                        <td data-i18n="lab_head">Jefatura Técnica de Lab</td>
                                         <td>2024</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Tecnomab Soluciones Generales S.A.C.</strong></td>
-                                        <td>Ingeniero de I+D</td>
+                                        <td data-i18n="rd_engineer">Ingeniero de I+D</td>
                                         <td>2022 — 2023</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Tecnomab Soluciones Generales S.A.C.</strong></td>
-                                        <td>Asistente de Ingeniería</td>
+                                        <td data-i18n="eng_assistant">Asistente de Ingeniería</td>
                                         <td>2019 — 2021</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Corporación Power Acoustik S.A.C.</strong></td>
-                                        <td>Pasante de Ingeniería</td>
+                                        <td data-i18n="eng_intern">Pasante de Ingeniería</td>
                                         <td>2019</td>
                                     </tr>
                                 </tbody>
@@ -130,27 +137,27 @@
                     <!-- Global Phase Legend -->
                     <div class="phase-legend-container">
                         <button class="legend-toggle" onclick="toggleLegend()">
-                            <i class="fa-solid fa-circle-info"></i> Guía de Fases <i
+                            <i class="fa-solid fa-circle-info"></i> <span data-i18n="phase_guide">Guía de Fases</span> <i
                                 class="fa-solid fa-chevron-down"></i>
                         </button>
                         <div class="phase-legend" id="global-legend">
                             <div class="legend-grid">
                                 <div class="legend-item">
-                                    <h4><span class="legend-dot mvp"></span> FASE 1: MVP</h4>
-                                    <p>Prototipo funcional de bajo costo. Validación de concepto con herramientas Open
+                                    <h4 data-i18n="phase_mvp_title"><span class="legend-dot mvp"></span> FASE 1: MVP</h4>
+                                    <p data-i18n="phase_mvp_desc">Prototipo funcional de bajo costo. Validación de concepto con herramientas Open
                                         Source.</p>
                                 </div>
                                 <div class="legend-item">
-                                    <h4><span class="legend-dot spiral"></span> FASE 2: SPIRAL</h4>
-                                    <p>Desarrollo iterativo de campo. Análisis de viabilidad técnica y económica.</p>
+                                    <h4 data-i18n="phase_spiral_title"><span class="legend-dot spiral"></span> FASE 2: SPIRAL</h4>
+                                    <p data-i18n="phase_spiral_desc">Desarrollo iterativo de campo. Análisis de viabilidad técnica y económica.</p>
                                 </div>
                                 <div class="legend-item">
-                                    <h4><span class="legend-dot developing"></span> FASE: DEVELOPING</h4>
-                                    <p>Proyecto en desarrollo activo. Integración de hardware y firmware.</p>
+                                    <h4 data-i18n="phase_developing_title"><span class="legend-dot developing"></span> FASE: DEVELOPING</h4>
+                                    <p data-i18n="phase_developing_desc">Proyecto en desarrollo activo. Integración de hardware y firmware.</p>
                                 </div>
                                 <div class="legend-item">
-                                    <h4><span class="legend-dot vmodel"></span> FASE 3: V-MODEL</h4>
-                                    <p>Estandarización y calidad industrial. Trazabilidad total y pruebas formales.</p>
+                                    <h4 data-i18n="phase_vmodel_title"><span class="legend-dot vmodel"></span> FASE 3: V-MODEL</h4>
+                                    <p data-i18n="phase_vmodel_desc">Estandarización y calidad industrial. Trazabilidad total y pruebas formales.</p>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +184,7 @@
 
                             <div class="progress-section">
                                 <div class="progress-label">
-                                    <span>Progreso</span>
+                                    <span data-i18n="project_progress">Progreso</span>
                                     <span>35%</span>
                                 </div>
                                 <div class="progress-track">
@@ -218,7 +225,7 @@
                                 </ul>
 
                                 <a href="https://github.com/MarcosBernardC/agrinode-lite" target="_blank" class="cv-button" style="margin-top: 15px; text-decoration: none; justify-content: center; width: 100%; box-sizing: border-box; display: flex;">
-                                    <i class="fa-brands fa-github" style="margin-right: 8px;"></i> VER REPOSITORIO
+                                    <i class="fa-brands fa-github" style="margin-right: 8px;"></i> <span data-i18n="project_repo">VER REPOSITORIO</span>
                                 </a>
                             </div>
 
@@ -253,7 +260,7 @@
 
                             <div class="progress-section">
                                 <div class="progress-label">
-                                    <span>Estado: Diseño de PCB</span>
+                                    <span data-i18n="project_state">Estado: Diseño de PCB</span>
                                     <span>65%</span>
                                 </div>
                                 <div class="progress-track">
@@ -294,7 +301,7 @@
                                 </ul>
                                 
                                 <a href="https://github.com/MarcosBernardC/PIC12F675-LED-Dimmer" target="_blank" class="cv-button" style="margin-top: 15px; text-decoration: none; justify-content: center; width: 100%; box-sizing: border-box; display: flex;">
-                                    <i class="fa-brands fa-github" style="margin-right: 8px;"></i> VER REPOSITORIO
+                                    <i class="fa-brands fa-github" style="margin-right: 8px;"></i> <span data-i18n="project_repo">VER REPOSITORIO</span>
                                 </a>
                             </div>
 
@@ -328,7 +335,7 @@
 
                             <div class="progress-section">
                                 <div class="progress-label">
-                                    <span>Estado: Finalizado</span>
+                                    <span data-i18n="project_state">Estado: Finalizado</span>
                                     <span>100%</span>
                                 </div>
                                 <div class="progress-track">
@@ -369,7 +376,7 @@
                                 </ul>
                                 
                                 <a href="https://github.com/MarcosBernardC/edgeComputingCalango" target="_blank" class="cv-button" style="margin-top: 15px; text-decoration: none; justify-content: center; width: 100%; box-sizing: border-box; display: flex;">
-                                    <i class="fa-brands fa-github" style="margin-right: 8px;"></i> VER REPOSITORIO
+                                    <i class="fa-brands fa-github" style="margin-right: 8px;"></i> <span data-i18n="project_repo"></span>VER REPOSITORIO</span>
                                 </a>
                             </div>
 
@@ -384,8 +391,8 @@
             <div class="content-section" id="services">
                 <div class="services-panel">
                     <div class="home-block">
-                        <h2 class="home-block-title">Servicios Especializados</h2>
-                    <p class="process-text" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+                        <h2 class="home-block-title" data-i18n="services_title">Servicios Especializados</h2>
+                    <p class="process-text" style="text-align: center; max-width: 800px; margin: 0 auto 40px;" data-i18n="services_intro">
                         Ofrezco soluciones integrales de ingeniería, combinando el rigor del diseño industrial con la agilidad del prototipado moderno.
                     </p>
                     
@@ -394,8 +401,8 @@
                             <div class="impact-icon-wrap">
                                 <i class="fa-solid fa-microchip"></i>
                             </div>
-                            <h3 class="impact-card-title">Sistemas Embebidos & IoT</h3>
-                            <p class="impact-card-text">
+                            <h3 class="impact-card-title" data-i18n="service_iot_title">Sistemas Embebidos & IoT</h3>
+                            <p class="impact-card-text" data-i18n="service_iot_text">
                                 Desarrollo de firmware robusto en <strong>C/C++</strong> y conectividad <strong>Edge-to-Cloud</strong>. Especialista en arquitecturas de bajo consumo y protocolos industriales.
                             </p>
                         </div>
@@ -404,8 +411,8 @@
                             <div class="impact-icon-wrap">
                                 <i class="fa-solid fa-industry"></i>
                             </div>
-                            <h3 class="impact-card-title">Modernización Legacy</h3>
-                            <p class="impact-card-text">
+                            <h3 class="impact-card-title" data-i18n="service_legacy_title">Modernización Legacy</h3>
+                            <p class="impact-card-text" data-i18n="service_legacy_text">
                                 Actualización de sistemas industriales antiguos (Retrofitting). Sustitución de lógica discreta por control digital inteligente sin cambiar la infraestructura base.
                             </p>
                         </div>
@@ -414,8 +421,8 @@
                             <div class="impact-icon-wrap">
                                 <i class="fa-solid fa-layer-group"></i>
                             </div>
-                            <h3 class="impact-card-title">Diseño de PCB (EDA)</h3>
-                            <p class="impact-card-text">
+                            <h3 class="impact-card-title" data-i18n="service_pcb_title">Diseño de PCB (EDA)</h3>
+                            <p class="impact-card-text" data-i18n="service_pcb_text">
                                 Diseño profesional de circuitos impresos en <strong>KiCad</strong>. Desde el esquema hasta los archivos Gerber para fabricación masiva, priorizando la integridad de señal.
                             </p>
                         </div>
@@ -424,8 +431,8 @@
                             <div class="impact-icon-wrap">
                                 <i class="fa-solid fa-file-contract"></i>
                             </div>
-                            <h3 class="impact-card-title">Consultoría & V&V</h3>
-                            <p class="impact-card-text">
+                            <h3 class="impact-card-title" data-i18n="service_consulting_title">Consultoría & V&V</h3>
+                            <p class="impact-card-text" data-i18n="service_consulting_text">
                                 Documentación técnica avanzada en <strong>LuaLaTeX</strong>. Pruebas de verificación y validación (V&V) bajo estándares de calidad industrial.
                             </p>
                         </div>
@@ -436,20 +443,20 @@
             <div class="content-section" id="process">
                 <div class="process-container">
                     
-                    <!-- Header 
+                    <!-- Header -->
                     <div class="process-header">
-                        <h1 class="process-main-title">⚙️ Metodología de Ingeniería</h1>
+                        <h1 class="process-main-title" data-i18n="process_main_title">⚙️ Metodología de Ingeniería</h1>
                         <p class="process-subtitle">Framework de Maduración Híbrido v1.1</p>
-                        <p class="process-update">📅 Última actualización: 5 de febrero de 2026</p>
-                    </div>-->
+                        <!-- <p class="process-update">📅 Última actualización: 5 de febrero de 2026</p> -->
+                    </div>
 
                     <!-- Quote inspiracional -->
-                    <div class="process-quote">
+                    <div class="process-quote" data-i18n="process_quote">
                         "No diseñamos para que funcione una vez; diseñamos para que sea reproducible, eficiente y resiliente al entorno real."
                     </div>
 
                     <!-- Visión general -->
-                    <p class="process-intro">
+                    <p class="process-intro" data-i18n="process_intro">
                         Mi metodología no es lineal; es una <strong>progresión de tres estados</strong> que garantiza la transición exitosa desde la idea en el silicio hasta la estandarización industrial. Este flujo fue validado durante el desarrollo de mi tesis para la integración eficiente de Hardware, Firmware y Software.
                     </p>
 
@@ -463,8 +470,8 @@
                             </div>
                             <div class="phase-content">
                                 <span class="phase-number">FASE 1</span>
-                                <h2 class="phase-title">Prototipado Iterativo (MVP)</h2>
-                                <p class="phase-objective">Validación técnica de concepto al menor costo posible</p>
+                                <h2 class="phase-title" data-i18n="process_phase1_title">Prototipado Iterativo (MVP)</h2>
+                                <p class="phase-objective" data-i18n="process_phase1_obj">Validación técnica de concepto al menor costo posible</p>
                                 <ul class="phase-details">
                                     <li><strong>Metodología:</strong> Ciclos rápidos de diseño, implementación y prueba (Iterative Prototyping)</li>
                                     <li><strong>Herramientas:</strong> Uso de software Gratuito / Open Source para minimizar la inversión inicial</li>
@@ -481,8 +488,8 @@
                             </div>
                             <div class="phase-content">
                                 <span class="phase-number">FASE 2</span>
-                                <h2 class="phase-title">Desarrollo de Campo (Modelo Espiral)</h2>
-                                <p class="phase-objective">Análisis de riesgos, viabilidad económica y robustez</p>
+                                <h2 class="phase-title" data-i18n="process_phase2_title">Desarrollo de Campo (Modelo Espiral)</h2>
+                                <p class="phase-objective" data-i18n="process_phase2_obj">Análisis de riesgos, viabilidad económica y robustez</p>
                                 <ul class="phase-details">
                                     <li><strong>Metodología:</strong> Aplicación del Modelo Espiral para evaluar cada iteración del MVP</li>
                                     <li><strong>Acción de Ingeniería:</strong> Evaluación de Costo/Beneficio de las tecnologías utilizadas en el prototipo</li>
@@ -499,8 +506,8 @@
                             </div>
                             <div class="phase-content">
                                 <span class="phase-number">FASE 3</span>
-                                <h2 class="phase-title">Estandarización (V-Modell XT)</h2>
-                                <p class="phase-objective">Calidad industrial, verificación formal y cierre de proyecto</p>
+                                <h2 class="phase-title" data-i18n="process_phase3_title">Estandarización (V-Modell XT)</h2>
+                                <p class="phase-objective" data-i18n="process_phase3_obj">Calidad industrial, verificación formal y cierre de proyecto</p>
                                 <ul class="phase-details">
                                     <li><strong>Metodología:</strong> Implementación del estándar V-Modell XT para asegurar trazabilidad total del dato</li>
                                     <li><strong>Verificación y Validación (V&V):</strong> Cada requerimiento validado sistemáticamente (desde el bit en el registro hasta la gráfica en el Dashboard)</li>
@@ -514,8 +521,8 @@
 
                     <!-- Sección de Tooling -->
                     <div class="tooling-section">
-                        <h2 class="tooling-title">💻 Entorno de Ejecución (Tooling)</h2>
-                        <p class="tooling-intro">
+                        <h2 class="tooling-title" data-i18n="tooling_title">💻 Entorno de Ejecución (Tooling)</h2>
+                        <p class="tooling-intro" data-i18n="tooling_intro">
                             La eficiencia de este proceso se apoya en una automatización profunda dentro de mi ecosistema Linux
                         </p>
 
@@ -549,16 +556,16 @@
         <div class="about-content">
 
             <section class="about-section">
-                <h2 class="about-title">Perfil Profesional</h2>
-                <p class="about-text">
+                <h2 class="about-title" data-i18n="about_profile_title">Perfil Profesional</h2>
+                <p class="about-text" data-i18n="about_profile_text">
                     Ingeniero Electrónico con enfoque en <strong>desarrollo embebido, automatización e infraestructura IoT</strong>. 
                     Especialista en integrar hardware y software mediante metodologías industriales (V-Modell XT) para crear soluciones 
-                    escalables, desde el silicio hasta la inteligencia de datos en tiempo real.
+Scalables, desde el silicio hasta la inteligencia de datos en tiempo real.
                 </p>
             </section>
 
             <section class="about-section">
-                <h2 class="about-title">Competencias Técnicas</h2>
+                <h2 class="about-title" data-i18n="about_skills_title">Competencias Técnicas</h2>
 
                 <div class="skills-lang">
                     <div class="skill-lang-item">
@@ -612,8 +619,8 @@
             </section>
 
             <section class="about-section">
-                <h2 class="about-title">Filosofía de Trabajo</h2>
-                <blockquote class="philosophy-quote">
+                <h2 class="about-title" data-i18n="about_philosophy_title">Filosofía de Trabajo</h2>
+                <blockquote class="philosophy-quote" data-i18n="about_philosophy_quote">
                     "La robustez industrial nace de la trazabilidad y el rigor metodológico."
                 </blockquote>
                 <ul class="philosophy-list">
@@ -629,8 +636,8 @@
         <div class="content-section" id="contact">
             <div class="contact-panel">
                 <div class="home-block">
-                    <h2 class="home-block-title">Conectemos</h2>
-                    <p class="process-text" style="text-align: center; margin-bottom: 30px;">
+                    <h2 class="home-block-title" data-i18n="contact_title">Conectemos</h2>
+                    <p class="process-text" style="text-align: center; margin-bottom: 30px;" data-i18n="contact_intro">
                         ¿Tienes un proyecto de IoT en mente o quieres profundizar en los detalles técnicos de mi
                         trayectoria?
                         Estoy disponible para colaborar.
@@ -662,28 +669,28 @@
 
                         <!-- Bottom Row: Form -->
                         <form action="https://formspree.io/f/XXXXX" method="POST" class="impact-card contact-form-card">
-                            <h3 class="impact-card-title form-title">Envíame un Mensaje</h3>
+                            <h3 class="impact-card-title form-title" data-i18n="contact_form_title">Envíame un Mensaje</h3>
                             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name" class="sr-only">Nombre</label>
-                                    <input type="text" id="name" name="name" placeholder="Tu Nombre" required class="form-input">
+                                    <input type="text" id="name" name="name" placeholder="Tu Nombre" required class="form-input" data-i18n-placeholder="contact_form_name">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>
-                                    <input type="email" id="email" name="_replyto" placeholder="tu@email.com" required class="form-input">
+                                    <input type="email" id="email" name="_replyto" placeholder="tu@email.com" required class="form-input" data-i18n-placeholder="contact_form_email">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="message" class="sr-only">Mensaje</label>
-                                <textarea id="message" name="message" rows="3" placeholder="¿Cómo puedo ayudarte?" required class="form-input"></textarea>
+                                <textarea id="message" name="message" rows="3" placeholder="¿Cómo puedo ayudarte?" required class="form-input" data-i18n-placeholder="contact_form_msg"></textarea>
                             </div>
 
                             <div class="form-footer">
                                 <button type="submit" class="cv-button submit-btn">
-                                    <i class="fa-solid fa-paper-plane"></i> ENVIAR MENSAJE
+                                    <i class="fa-solid fa-paper-plane"></i> <span data-i18n="contact_form_send">ENVIAR MENSAJE</span>
                                 </button>
                             </div>
                         </form>
@@ -703,7 +710,7 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

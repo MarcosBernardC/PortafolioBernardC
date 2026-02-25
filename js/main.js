@@ -1,5 +1,70 @@
+import translations from './translations.js';
+
 const menuItems = document.querySelectorAll('.menu-item');
 const sections = document.querySelectorAll('.content-section');
+
+// --- Language Switching Logic ---
+let currentLang = localStorage.getItem('portfolio-lang') || 'es';
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('portfolio-lang', lang);
+    
+    // Update HTML lang attribute
+    document.getElementById('html-lang').setAttribute('lang', lang);
+    
+    // Update Toggle Button Text
+    const langBtnText = document.querySelector('.lang-text');
+    if (langBtnText) {
+        langBtnText.textContent = lang === 'es' ? 'EN' : 'ES';
+    }
+
+    // Translate all elements with data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            // Check if it's a button/link with an icon
+            const icon = el.querySelector('i');
+            if (icon) {
+                el.innerHTML = '';
+                el.appendChild(icon);
+                el.appendChild(document.createTextNode(' ' + translations[lang][key]));
+            } else {
+                el.textContent = translations[lang][key];
+            }
+        }
+    });
+
+    // Translate Placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) {
+            el.setAttribute('placeholder', translations[lang][key]);
+        }
+    });
+
+    // Update details toggle text if necessary
+    document.querySelectorAll('.details-toggle').forEach(btn => {
+        const icon = btn.querySelector('i');
+        const isActive = btn.classList.contains('active');
+        const textKey = isActive ? 'project_details_active' : 'project_details';
+        btn.innerHTML = translations[lang][textKey] + ' ';
+        btn.appendChild(icon);
+    });
+}
+
+// Initial language load
+document.addEventListener('DOMContentLoaded', () => {
+    setLanguage(currentLang);
+});
+
+const langToggle = document.getElementById('lang-toggle');
+if (langToggle) {
+    langToggle.addEventListener('click', () => {
+        const newLang = currentLang === 'es' ? 'en' : 'es';
+        setLanguage(newLang);
+    });
+}
 
 menuItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -68,16 +133,22 @@ menuItems.forEach(item => {
 
 // Pruned: Agenda modal logic removed.
 
-function toggleDetails(button) {
+window.toggleDetails = function(button) {
     const card = button.closest('.project-card');
     const details = card.querySelector('.progress-details');
     const icon = button.querySelector('i');
 
     details.classList.toggle('active');
     button.classList.toggle('active');
+
+    // Update text based on state and language
+    const isActive = button.classList.contains('active');
+    const textKey = isActive ? 'project_details_active' : 'project_details';
+    button.innerHTML = translations[currentLang][textKey] + ' ';
+    button.appendChild(icon);
 }
 
-function toggleLegend() {
+window.toggleLegend = function() {
     const wrapper = document.querySelector('.projects-wrapper');
     const legend = document.getElementById('global-legend');
     const button = document.querySelector('.legend-toggle');
@@ -117,7 +188,10 @@ function closePDFModal() {
 if (resumeBtn) {
     resumeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        openPDFModal('assets/Marcos_Bernard_CV.pdf');
+        const resumeFile = currentLang === 'es' 
+            ? 'assets/Marcos_Bernard_resume_spanish.pdf' 
+            : 'assets/Marcos_Bernard_resume_english.pdf';
+        openPDFModal(resumeFile);
     });
 }
 
