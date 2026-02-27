@@ -81,6 +81,14 @@ const translations = {
         p_date_nov: "Nov",
         p_date_dec: "Dic",
 
+        // Project 4: Instrumentation Manuals Pro
+        p4_desc: "Reingeniería y localización técnica de manuales industriales. Transformación de documentación obsoleta en manuales vectoriales de alta precisión editorial.",
+        p4_loc: "Lutron Precision Components | Control de Calidad",
+        p4_step1: "Digitalización y tipografía Helvetica (12pt)",
+        p4_step2: "Esquemas de hardware vectoriales con TikZ",
+        p4_step3: "Traducción técnica y estandarización DIN",
+        p4_step4: "Automatización de compilación con Makefile",
+
         // Services Section
         services_title: "Servicios Especializados",
         services_intro: "Ofrezco soluciones integrales de ingeniería, combinando el rigor del diseño industrial con la agilidad del prototipado moderno.",
@@ -335,7 +343,15 @@ const translations = {
         contact_form_name: "Your Name",
         contact_form_email: "you@email.com",
         contact_form_msg: "How can I help you?",
-        contact_form_send: "SEND MESSAGE"
+        contact_form_send: "SEND MESSAGE",
+
+        // Project 4: Instrumentation Manuals Pro
+        p4_desc: "Technical redesign and localization of industrial manuals. Transforming legacy documentation into high-precision, production-ready manuals.",
+        p4_loc: "Lutron Precision Components | Quality Control",
+        p4_step1: "Digitalization & Helvetica Typography (12pt)",
+        p4_step2: "Vector hardware schematics via TikZ",
+        p4_step3: "Technical translation & DIN standardization",
+        p4_step4: "Build automation using Makefile"
     }
 };
 
