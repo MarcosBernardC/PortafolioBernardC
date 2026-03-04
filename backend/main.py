@@ -9,10 +9,17 @@ load_dotenv()
 
 app = FastAPI(title="Marcos Bernard Portfolio API")
 
-# 2. Configuración de CORS (Vital para que tu frontend en GitHub Pages pueda leer la API)
+# 2. Configuración de CORS
+origins = [
+    "http://localhost:5500", 
+    "http://127.0.0.1:5500",
+    "https://marcosbernardc.github.io" # Tu URL real de GitHub Pages
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # En producción cambiaremos esto por tu dominio de GitHub Pages
+    allow_origins=origins, # Aquí inyectamos la lista
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -35,6 +42,9 @@ def get_projects():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+# Cambia el host en el bloque final para que sea compatible con la nube
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Render asigna el puerto automáticamente mediante una variable de entorno
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

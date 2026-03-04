@@ -433,3 +433,33 @@
     margin: 0 auto;
   }
 }
+
+/* Loader for dynamic projects */
+.projects-loader {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  color: var(--slate-gray);
+  gap: 15px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.projects-loader i {
+  font-size: 2.5rem;
+  color: var(--accent-blue);
+}
+
+.projects-loader p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -44,19 +44,57 @@ function setLanguage(lang) {
     loadProjects();
 }
 
-// --- Dynamic Projects Logic (La "magia" de Supabase) ---
+// --- Dynamic Projects Logic (La "magia" de Supabase con Caché Local) ---
+
+// 1. Esta variable DEBE estar fuera para que persista entre cambios de idioma
+let projectsData = []; 
+
 async function loadProjects() {
     const container = document.getElementById("projects-container");
     if (!container) return;
 
+    // 2. Si ya tenemos los datos en memoria, los usamos directamente (0 consultas extra)
+    if (projectsData.length > 0) {
+        renderProjects(projectsData, container);
+        return;
+    }
+
+    // 3. Si es la primera vez, mostramos el Loader
+    const loaderHTML = `
+        <div class="projects-loader">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            <p data-i18n="loading_projects">${translations[currentLang]['loading_projects'] || 'Cargando proyectos...'}</p>
+        </div>
+    `;
+    container.innerHTML = loaderHTML;
+
     try {
+        // 4. Hacemos la ÚNICA petición necesaria
         const response = await fetch(`${API_URL}/projects`);
         if (!response.ok) throw new Error("API Offline");
-        const projects = await response.json();
-        renderProjects(projects, container);
+        
+        // Guardamos el resultado en nuestra variable global (caché)
+        projectsData = await response.json();
+        
+        if (projectsData.length === 0) {
+            container.innerHTML = `<p style="color:gray; text-align:center; width:100%; grid-column: 1/-1;">No hay proyectos disponibles por ahora.</p>`;
+            return;
+        }
+
+        renderProjects(projectsData, container);
     } catch (error) {
         console.error("❌ Error:", error);
-        container.innerHTML = `<p style="color:gray;">Modo Offline: No se pudieron cargar los proyectos.</p>`;
+        // Reseteamos caché en error para permitir reintento limpio
+        projectsData = []; 
+        container.innerHTML = `
+            <div style="color:gray; text-align:center; width:100%; grid-column: 1/-1; padding: 40px;">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <p>Modo Offline: No se pudieron cargar los proyectos.</p>
+                <button onclick="loadProjects()" class="cv-button" style="margin-top: 15px; display: inline-flex;">
+                    <i class="fa-solid fa-rotate-right" style="margin-right:8px;"></i> Reintentar
+                </button>
+            </div>
+        `;
     }
 }
 
@@ -68,45 +106,57 @@ function renderProjects(projects, container) {
         const loc = currentLang === 'es' ? project.location_es : project.location_en;
         
         // Seleccionamos etiquetas estáticas de translations.js
-        const labelEstado = translations[currentLang]['project_state'];
-        const labelRepo = translations[currentLang]['project_repo'];
-        const labelDetails = translations[currentLang]['project_details'];
+        const labelProgress = translations[currentLang]['project_progress'] || 'Progreso';
+        const labelRepo = translations[currentLang]['project_repo'] || 'VER REPOSITORIO';
+        const labelDetails = translations[currentLang]['project_details'] || 'Ver Detalles';
+        const labelPending = translations[currentLang]['p_date_pending'] || 'Pendiente';
 
         const card = document.createElement('div');
         card.className = 'project-card';
         card.innerHTML = `
             <div class="status-badge status-${project.status_badge}">${project.status_badge}</div>
-            <div class="card-header"><i class="fa-solid ${project.card_icon} card-icon" style="color: ${project.icon_color};"></i></div>
+            <div class="card-header">
+                <i class="fa-solid ${project.card_icon} card-icon" style="color: ${project.icon_color || 'inherit'};"></i>
+            </div>
             <h3 class="card-title">${project.title}</h3>
             <p class="card-description">${desc || ''}</p>
+            
             <div style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">
                 <i class="fa-solid fa-location-dot"></i> <span>${loc || ''}</span>
             </div>
+
             <div class="card-badges">
                 ${project.tech_stack ? project.tech_stack.map(t => `<span class="badge">${t}</span>`).join('') : ''}
             </div>
+
             <div class="progress-section">
-                <div class="progress-label"><span>${labelEstado}: ${project.progress_percent}%</span></div>
+                <div class="progress-label">
+                    <span>${labelProgress}</span>
+                    <span>${project.progress_percent}%</span>
+                </div>
                 <div class="progress-track">
-                    <div class="progress-fill" style="width: ${project.progress_percent}%; background: ${project.progress_color};"></div>
+                    <div class="progress-fill" style="width: ${project.progress_percent}%; background: ${project.progress_color || 'var(--accent-blue)'};"></div>
                 </div>
             </div>
+
             <div class="progress-details">
                 <ul class="checklist">
                     ${project.checklist ? project.checklist.map(item => `
                         <li class="checklist-item">
                             <div class="checklist-info">
-                                <i class="fa-solid fa-check checklist-icon ${item.done ? 'done' : ''}"></i>
+                                <i class="fa-solid ${item.done ? 'fa-check checklist-icon done' : (item.in_progress ? 'fa-spinner fa-spin checklist-icon in-progress' : 'fa-regular fa-circle checklist-icon pending')}"></i>
                                 <span class="checklist-text">${currentLang === 'es' ? item.text_es : item.text_en}</span>
                             </div>
-                            <span class="checklist-date">${item.date}</span>
+                            <span class="checklist-date">${item.date || (item.done ? 'DONE' : labelPending)}</span>
                         </li>
                     `).join('') : ''}
                 </ul>
-                <a href="${project.repo_url}" target="_blank" class="cv-button" style="width:100%; justify-content:center; display:flex; text-decoration:none; margin-top:10px;">
-                    <i class="fa-brands fa-github"></i> <span>${labelRepo}</span>
+
+                <a href="${project.repo_url}" target="_blank" class="cv-button" style="margin: 15px 0 0 0; text-decoration: none; justify-content: center; width: 100%; box-sizing: border-box; display: flex;">
+                    <i class="fa-brands fa-github" style="margin-right: 8px;"></i> <span>${labelRepo}</span>
                 </a>
             </div>
+
             <button class="details-toggle" onclick="toggleDetails(this)">
                 ${labelDetails} <i class="fa-solid fa-chevron-down"></i>
             </button>
