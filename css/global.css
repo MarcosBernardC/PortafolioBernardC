@@ -64,8 +64,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: auto;
   font-family: "Inter", sans-serif;
   color: var(--dark-charcoal);
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
@@ -84,14 +82,16 @@ body {
    Header
    ======================================== */
 .header-section {
-  height: 26%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--pure-white);
   background: linear-gradient(135deg, var(--pure-white), var(--off-white));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  position: relative;
   border-bottom: 1px solid var(--border-gray);
   box-shadow:
     0 4px 6px -1 rgba(0, 0, 0, 0.05),
@@ -229,8 +229,6 @@ body {
    Common Content Containers
    ======================================== */
 .image-section {
-  min-height: 74%;
-  flex: 1;
   background: linear-gradient(
     135deg,
     var(--lighter-gray) 0%,
@@ -238,10 +236,8 @@ body {
   );
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 .image-section::before {
@@ -593,22 +589,26 @@ body {
 
 /* SOLUCIÓN BASE: Layout consistente */
 .content-section {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
   opacity: 0;
+  display: none;
   transform: translateY(20px);
   transition:
     opacity 0.5s ease,
     transform 0.5s ease;
   pointer-events: none;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0;
+}
+
+.content-section.active {
+  opacity: 1;
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-start;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 /* Espaciado estandarizado para TODOS los paneles */
@@ -635,12 +635,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .content-section {
-    position: relative;
-    height: auto;
-    min-height: 0;
   }
 
   .content-section:not(.active) {
@@ -690,15 +684,8 @@ body {
     padding: var(--section-gap-mobile) 0;
   }
 
-  .content-section {
-    position: relative;
-    height: auto;
-    align-items: flex-start;
-    padding-top: var(--section-gap-mobile);
-  }
-
   .content-section.active {
-    position: relative;
+    display: flex !important;
   }
 
   .content-section:not(.active) {
