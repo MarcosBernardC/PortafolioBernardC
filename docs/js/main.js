@@ -2,7 +2,8 @@ import translations from './translations.js';
 
 const menuItems = document.querySelectorAll('.menu-item');
 const sections = document.querySelectorAll('.content-section');
-const API_URL = "http://localhost:8000"; // Tu FastAPI local
+// docs/js/main.js
+const API_URL = "https://portafoliobernardc.onrender.com";
 
 // --- Language Switching Logic ---
 const getInitialLanguage = () => {
