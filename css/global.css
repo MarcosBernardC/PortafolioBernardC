@@ -716,10 +716,9 @@ body {
    Language Toggle Styles (Fixed Top Right)
    ======================================== */
 .lang-toggle-fixed {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 1000;
 }
 
 .lang-btn {
