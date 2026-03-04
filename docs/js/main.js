@@ -219,3 +219,9 @@ document.addEventListener('keydown', (e) => {
         closePDFModal();
     }
 });
+
+// --- Exponer funciones al scope global para que el HTML y la consola las vean ---
+window.loadProjects = loadProjects;
+window.setLanguage = setLanguage;
+window.toggleDetails = toggleDetails;
+window.toggleLegend = toggleLegend;
