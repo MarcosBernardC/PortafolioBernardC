@@ -31,6 +31,13 @@
   --mvp-color: #059669; /* Verde esmeralda */
   --spiral-color: #2563eb; /* Azul cobalto */
   --vmodel-color: #7c3aed; /* Púrpura */
+
+  /* Progress Palette */
+  --prog-coral: #FF7F50;     /* 0% - 20% */
+  --prog-amber: #FFBF00;     /* 21% - 50% */
+  --prog-cobalt: #2563eb;    /* 51% - 85% */
+  --prog-turquoise: #00CED1; /* 86% - 99% */
+  --prog-forest: #228B22;    /* 100% */
 }
 
 /* ========================================

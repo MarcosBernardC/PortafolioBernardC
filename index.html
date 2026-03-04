@@ -143,21 +143,25 @@
                         <div class="phase-legend" id="global-legend">
                             <div class="legend-grid">
                                 <div class="legend-item">
-                                    <h4 data-i18n="phase_mvp_title"><span class="legend-dot mvp"></span> FASE 1: MVP</h4>
+                                    <h4 data-i18n="phase_mvp_title"><span class="legend-dot status-MVP"></span> FASE 1: MVP</h4>
                                     <p data-i18n="phase_mvp_desc">Prototipo funcional de bajo costo. Validación de concepto con herramientas Open
                                         Source.</p>
                                 </div>
                                 <div class="legend-item">
-                                    <h4 data-i18n="phase_spiral_title"><span class="legend-dot spiral"></span> FASE 2: SPIRAL</h4>
+                                    <h4 data-i18n="phase_spiral_title"><span class="legend-dot status-SPIRAL"></span> FASE 2: SPIRAL</h4>
                                     <p data-i18n="phase_spiral_desc">Desarrollo iterativo de campo. Análisis de viabilidad técnica y económica.</p>
                                 </div>
                                 <div class="legend-item">
-                                    <h4 data-i18n="phase_developing_title"><span class="legend-dot developing"></span> FASE: DEVELOPING</h4>
+                                    <h4 data-i18n="phase_developing_title"><span class="legend-dot status-DEVELOPING"></span> FASE: DEVELOPING</h4>
                                     <p data-i18n="phase_developing_desc">Proyecto en desarrollo activo. Integración de hardware y firmware.</p>
                                 </div>
                                 <div class="legend-item">
-                                    <h4 data-i18n="phase_vmodel_title"><span class="legend-dot vmodel"></span> FASE 3: V-MODEL</h4>
+                                    <h4 data-i18n="phase_vmodel_title"><span class="legend-dot status-V-MODEL"></span> FASE 3: V-MODEL</h4>
                                     <p data-i18n="phase_vmodel_desc">Estandarización y calidad industrial. Trazabilidad total y pruebas formales.</p>
+                                </div>
+                                <div class="legend-item">
+                                    <h4 data-i18n="phase_pending_title"><span class="legend-dot status-PENDING"></span> FASE: PENDING</h4>
+                                    <p data-i18n="phase_pending_desc">Proyecto en espera de inicio o recursos. Definición de requerimientos iniciales.</p>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +169,7 @@
 
                     <div class="projects-container">
                         <div class="project-card">
-                            <div class="status-badge status-mvp">MVP</div>
+                            <div class="status-badge status-MVP">MVP</div>
                             <div class="card-header">
                                 <i class="fa-solid fa-microchip card-icon"></i>
                             </div>
@@ -188,7 +192,7 @@
                                     <span>35%</span>
                                 </div>
                                 <div class="progress-track">
-                                    <div class="progress-fill" style="width: 35%;"></div>
+                                    <div class="progress-fill" style="width: 35%; background: var(--prog-amber);"></div>
                                 </div>
                             </div>
 
@@ -235,7 +239,7 @@
                         </div>
 
                         <div class="project-card">
-                            <div class="status-badge status-developing">DEVELOPING</div>
+                            <div class="status-badge status-SPIRAL">SPIRAL</div>
                             
                             <div class="card-header">
                                 <i class="fa-solid fa-lightbulb card-icon" style="color: #f1c40f;"></i>
@@ -260,11 +264,11 @@
 
                             <div class="progress-section">
                                 <div class="progress-label">
-                                    <span data-i18n="project_state">Estado: Diseño de PCB</span>
-                                    <span>65%</span>
+                                    <span data-i18n="project_state">Estado: Finalizado (SPIRAL)</span>
+                                    <span>100%</span>
                                 </div>
                                 <div class="progress-track">
-                                    <div class="progress-fill" style="width: 65%; background: #f39c12;"></div>
+                                    <div class="progress-fill" style="width: 100%; background: var(--prog-forest);"></div>
                                 </div>
                             </div>
 
@@ -286,17 +290,10 @@
                                     </li>
                                     <li class="checklist-item">
                                         <div class="checklist-info">
-                                            <i class="fa-solid fa-spinner fa-spin checklist-icon" style="color: #f39c12;"></i>
+                                            <i class="fa-solid fa-check checklist-icon done"></i>
                                             <span class="checklist-text" data-i18n="p2_step3">Ruteado e Integración Buck Converter</span>
                                         </div>
-                                        <span class="checklist-date" data-i18n="p_date_actual">ACTUAL</span>
-                                    </li>
-                                    <li class="checklist-item">
-                                        <div class="checklist-info">
-                                            <i class="fa-solid fa-clock checklist-icon"></i>
-                                            <span class="checklist-text" data-i18n="p2_step4">Fabricación y Pruebas de Carga</span>
-                                        </div>
-                                        <span class="checklist-date" data-i18n="p_date_prox">Prox</span>
+                                        <span class="checklist-date" data-i18n="p_date_actual">DONE</span>
                                     </li>
                                 </ul>
                                 
@@ -311,7 +308,7 @@
                         </div>
 
                         <div class="project-card">
-                            <div class="status-badge status-spiral">SPIRAL</div>
+                            <div class="status-badge status-SPIRAL">SPIRAL</div>
                             
                             <div class="card-header">
                                 <i class="fa-solid fa-tower-broadcast card-icon"></i>
@@ -339,7 +336,7 @@
                                     <span>100%</span>
                                 </div>
                                 <div class="progress-track">
-                                    <div class="progress-fill" style="width: 100%; background: #28a745;"></div>
+                                    <div class="progress-fill" style="width: 100%; background: var(--prog-forest);"></div>
                                 </div>
                             </div>
 
@@ -386,7 +383,7 @@
                         </div>
 
                         <div class="project-card">
-                            <div class="status-badge status-vmodel">V-MODEL</div>
+                            <div class="status-badge status-V-MODEL">V-MODEL</div>
                             
                             <div class="card-header">
                                 <i class="fa-solid fa-file-lines card-icon"></i>
@@ -415,7 +412,7 @@
                                     <span>100%</span>
                                 </div>
                                 <div class="progress-track">
-                                    <div class="progress-fill" style="width: 100%; background: #28a745;"></div>
+                                    <div class="progress-fill" style="width: 100%; background: var(--prog-forest);"></div>
                                 </div>
                             </div>
 
@@ -451,6 +448,77 @@
                                     </li>
                                 </ul>
                                 <a href="https://github.com/MarcosBernardC/instrumentation-manuals-pro" target="_blank" class="cv-button" style="margin: 15px 0 0 0; text-decoration: none; justify-content: center; width: 100%; box-sizing: border-box; display: flex;">
+                                    <i class="fa-brands fa-github" style="margin-right: 8px;"></i> <span data-i18n="project_repo">VER REPOSITORIO</span>
+                                </a>
+                            </div>
+
+                            <button class="details-toggle" onclick="toggleDetails(this)">
+                                Ver Detalles <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="status-badge status-MVP">MVP</div>
+                            <div class="card-header">
+                                <i class="fa-solid fa-database card-icon"></i>
+                            </div>
+                            <h3 class="card-title">CRM Laboral: Engineering Solutions</h3>
+                            <p class="card-description" data-i18n="p_crm_desc">Ecosistema de gestión de datos y automatización de procesos de selección técnica.</p>
+                            
+                            <div style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">
+                                <i class="fa-solid fa-cloud-code"></i> <span data-i18n="p_crm_loc">Cloud Stack (FastAPI / Supabase)</span>
+                            </div>
+
+                            <div class="card-badges">
+                                <span class="badge">Python 3.14</span>
+                                <span class="badge">FastAPI</span>
+                                <span class="badge">PostgreSQL</span>
+                                <span class="badge">ETL</span>
+                            </div>
+
+                            <div class="progress-section">
+                                <div class="progress-label">
+                                    <span data-i18n="project_progress">Progreso</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-fill" style="width: 85%; background: var(--prog-cobalt);"></div>
+                                </div>
+                            </div>
+
+                            <div class="progress-details">
+                                <ul class="checklist">
+                                    <li class="checklist-item">
+                                        <div class="checklist-info">
+                                            <i class="fa-solid fa-check checklist-icon done"></i>
+                                            <span class="checklist-text" data-i18n="p_crm_step1">Arquitectura Backend & API</span>
+                                        </div>
+                                        <span class="checklist-date"><span data-i18n="p_date_feb">Feb</span> 28</span>
+                                    </li>
+                                    <li class="checklist-item">
+                                        <div class="checklist-info">
+                                            <i class="fa-solid fa-check checklist-icon done"></i>
+                                            <span class="checklist-text" data-i18n="p_crm_step2">Esquema DB & Migraciones</span>
+                                        </div>
+                                        <span class="checklist-date"><span data-i18n="p_date_mar">Mar</span> 01</span>
+                                    </li>
+                                    <li class="checklist-item">
+                                        <div class="checklist-info">
+                                            <i class="fa-solid fa-spinner fa-spin checklist-icon in-progress"></i>
+                                            <span class="checklist-text" data-i18n="p_crm_step3">Frontend Dashboard (Docs)</span>
+                                        </div>
+                                        <span class="checklist-date"><span data-i18n="p_date_mar">Mar</span> 04</span>
+                                    </li>
+                                    <li class="checklist-item">
+                                        <div class="checklist-info">
+                                            <i class="fa-regular fa-circle checklist-icon pending"></i>
+                                            <span class="checklist-text" data-i18n="p_crm_step4">Automatización de Postulación</span>
+                                        </div>
+                                        <span class="checklist-date" data-i18n="p_date_pending">Pendiente</span>
+                                    </li>
+                                </ul>
+
+                                <a href="https://github.com/MarcosBernardC/CRM_LABORAL" target="_blank" class="cv-button" style="margin: 15px 0 0 0; text-decoration: none; justify-content: center; width: 100%; box-sizing: border-box; display: flex;">
                                     <i class="fa-brands fa-github" style="margin-right: 8px;"></i> <span data-i18n="project_repo">VER REPOSITORIO</span>
                                 </a>
                             </div>

@@ -42,6 +42,8 @@ const translations = {
         phase_developing_desc: "Proyecto en desarrollo activo. Integración de hardware y firmware.",
         phase_vmodel_title: "FASE 3: V-MODEL",
         phase_vmodel_desc: "Estandarización y calidad industrial. Trazabilidad total y pruebas formales.",
+        phase_pending_title: "FASE: PENDING",
+        phase_pending_desc: "Proyecto en espera de inicio o recursos. Definición de requerimientos iniciales.",
         
         project_progress: "Progreso",
         project_state: "Estado",
@@ -219,6 +221,8 @@ const translations = {
         phase_developing_desc: "Project under active development. Hardware and firmware integration.",
         phase_vmodel_title: "PHASE 3: V-MODEL",
         phase_vmodel_desc: "Industrial standardization and quality. Total traceability and formal testing.",
+        phase_pending_title: "PHASE: PENDING",
+        phase_pending_desc: "Project awaiting start or resources. Initial requirements definition.",
         
         project_progress: "Progress",
         project_state: "Status",

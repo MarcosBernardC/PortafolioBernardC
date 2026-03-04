@@ -329,6 +329,9 @@
 .checklist-icon.pending {
   color: var(--lighter-gray);
 }
+.checklist-icon.in-progress {
+  color: #f39c12;
+}
 
 .checklist-text {
   font-weight: 500;
@@ -392,28 +395,34 @@
   z-index: 10;
 }
 
-.status-mvp {
+.status-MVP {
   background-color: rgba(16, 185, 129, 0.1);
   color: #059669;
   border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-.status-spiral {
+.status-SPIRAL {
   background-color: rgba(59, 130, 246, 0.1);
   color: #2563eb;
   border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-.status-developing {
+.status-DEVELOPING {
   background-color: rgba(241, 196, 15, 0.15);
   color: #9a7d0a;
   border: 1px solid rgba(241, 196, 15, 0.3);
 }
 
-.status-vmodel {
+.status-V-MODEL {
   background-color: rgba(139, 92, 246, 0.1);
   color: #7c3aed;
   border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.status-PENDING {
+  background-color: rgba(100, 116, 139, 0.1);
+  color: #64748b;
+  border: 1px solid rgba(100, 116, 139, 0.2);
 }
 
 @media (max-width: 480px) {
