@@ -2,18 +2,14 @@ import translations from './translations.js';
 
 const menuItems = document.querySelectorAll('.menu-item');
 const sections = document.querySelectorAll('.content-section');
+const API_URL = "http://localhost:8000"; // Tu FastAPI local
 
 // --- Language Switching Logic ---
 const getInitialLanguage = () => {
-    // 1. Check persistence
     const saved = localStorage.getItem('portfolio-lang');
     if (saved) return saved;
-
-    // 2. Check browser language (navigator.language)
     const browserLang = navigator.language || navigator.userLanguage;
     if (browserLang.startsWith('en')) return 'en';
-    
-    // 3. Default to Spanish
     return 'es';
 };
 
@@ -22,21 +18,17 @@ let currentLang = getInitialLanguage();
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('portfolio-lang', lang);
-    
-    // Update HTML lang attribute
     document.getElementById('html-lang').setAttribute('lang', lang);
     
-    // Update Toggle Button Text
     const langBtnText = document.querySelector('.lang-text');
     if (langBtnText) {
         langBtnText.textContent = lang === 'es' ? 'EN' : 'ES';
     }
 
-    // Translate all elements with data-i18n
+    // Traducir elementos estáticos
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            // Check if it's a button/link with an icon
             const icon = el.querySelector('i');
             if (icon) {
                 el.innerHTML = '';
@@ -48,25 +40,82 @@ function setLanguage(lang) {
         }
     });
 
-    // Translate Placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (translations[lang][key]) {
-            el.setAttribute('placeholder', translations[lang][key]);
-        }
-    });
+    // RE-RENDERIZAR PROYECTOS: Importante para cambiar description_es por description_en
+    loadProjects();
+}
 
-    // Update details toggle text if necessary
-    document.querySelectorAll('.details-toggle').forEach(btn => {
-        const icon = btn.querySelector('i');
-        const isActive = btn.classList.contains('active');
-        const textKey = isActive ? 'project_details_active' : 'project_details';
-        btn.innerHTML = translations[lang][textKey] + ' ';
-        btn.appendChild(icon);
+// --- Dynamic Projects Logic (La "magia" de Supabase) ---
+async function loadProjects() {
+    const container = document.getElementById("projects-container");
+    if (!container) return;
+
+    try {
+        const response = await fetch(`${API_URL}/projects`);
+        if (!response.ok) throw new Error("API Offline");
+        const projects = await response.json();
+        renderProjects(projects, container);
+    } catch (error) {
+        console.error("❌ Error:", error);
+        container.innerHTML = `<p style="color:gray;">Modo Offline: No se pudieron cargar los proyectos.</p>`;
+    }
+}
+
+function renderProjects(projects, container) {
+    container.innerHTML = ""; 
+    projects.forEach(project => {
+        // Seleccionamos los datos de Supabase según el idioma
+        const desc = currentLang === 'es' ? project.description_es : project.description_en;
+        const loc = currentLang === 'es' ? project.location_es : project.location_en;
+        
+        // Seleccionamos etiquetas estáticas de translations.js
+        const labelEstado = translations[currentLang]['project_state'];
+        const labelRepo = translations[currentLang]['project_repo'];
+        const labelDetails = translations[currentLang]['project_details'];
+
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.innerHTML = `
+            <div class="status-badge status-${project.status_badge}">${project.status_badge}</div>
+            <div class="card-header"><i class="fa-solid ${project.card_icon} card-icon" style="color: ${project.icon_color};"></i></div>
+            <h3 class="card-title">${project.title}</h3>
+            <p class="card-description">${desc || ''}</p>
+            <div style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">
+                <i class="fa-solid fa-location-dot"></i> <span>${loc || ''}</span>
+            </div>
+            <div class="card-badges">
+                ${project.tech_stack ? project.tech_stack.map(t => `<span class="badge">${t}</span>`).join('') : ''}
+            </div>
+            <div class="progress-section">
+                <div class="progress-label"><span>${labelEstado}: ${project.progress_percent}%</span></div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: ${project.progress_percent}%; background: ${project.progress_color};"></div>
+                </div>
+            </div>
+            <div class="progress-details">
+                <ul class="checklist">
+                    ${project.checklist ? project.checklist.map(item => `
+                        <li class="checklist-item">
+                            <div class="checklist-info">
+                                <i class="fa-solid fa-check checklist-icon ${item.done ? 'done' : ''}"></i>
+                                <span class="checklist-text">${currentLang === 'es' ? item.text_es : item.text_en}</span>
+                            </div>
+                            <span class="checklist-date">${item.date}</span>
+                        </li>
+                    `).join('') : ''}
+                </ul>
+                <a href="${project.repo_url}" target="_blank" class="cv-button" style="width:100%; justify-content:center; display:flex; text-decoration:none; margin-top:10px;">
+                    <i class="fa-brands fa-github"></i> <span>${labelRepo}</span>
+                </a>
+            </div>
+            <button class="details-toggle" onclick="toggleDetails(this)">
+                ${labelDetails} <i class="fa-solid fa-chevron-down"></i>
+            </button>
+        `;
+        container.appendChild(card);
     });
 }
 
-// Initial language load
+// --- Resto de tu lógica original (PDF, Menú, etc.) ---
 document.addEventListener('DOMContentLoaded', () => {
     setLanguage(currentLang);
 });
@@ -81,62 +130,12 @@ if (langToggle) {
 
 menuItems.forEach(item => {
     item.addEventListener('click', () => {
-        // Menú activo
         menuItems.forEach(mi => mi.classList.remove('active'));
         item.classList.add('active');
-
         const target = item.dataset.target;
-
         sections.forEach(sec => {
             if (sec.id === target) {
                 sec.classList.add('active');
-
-                // Animaciones diferenciadas por sección
-                if (target === 'home') {
-                    const phrase = sec.querySelector('.main-phrase');
-                    if (phrase) {
-                        phrase.style.opacity = 0;
-                        phrase.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            phrase.style.opacity = 1;
-                            phrase.style.transform = 'translateY(0)';
-                        }, 50);
-                    }
-                } else if (target === 'about') {
-                    // Animación suave para sección About
-                    const container = sec.querySelector('.about-container');
-                    if (container) {
-                        container.style.opacity = 0;
-                        container.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            container.style.opacity = 1;
-                            container.style.transform = 'translateY(0)';
-                        }, 50);
-                    }
-                } else if (target === 'process') {
-                    // Animación suave para sección Process
-                    const container = sec.querySelector('.process-container');
-                    if (container) {
-                        container.style.opacity = 0;
-                        container.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            container.style.opacity = 1;
-                            container.style.transform = 'translateY(0)';
-                        }, 50);
-                    }
-                } else {
-                    // Efecto slide para otras secciones
-                    const content = sec.firstElementChild;
-                    if (content) {
-                        content.style.opacity = 0;
-                        content.style.transform = 'translateY(30px)';
-                        setTimeout(() => {
-                            content.style.opacity = 1;
-                            content.style.transform = 'translateY(0)';
-                        }, 50);
-                    }
-                }
-
             } else {
                 sec.classList.remove('active');
             }
@@ -144,17 +143,12 @@ menuItems.forEach(item => {
     });
 });
 
-// Pruned: Agenda modal logic removed.
-
 window.toggleDetails = function(button) {
     const card = button.closest('.project-card');
     const details = card.querySelector('.progress-details');
     const icon = button.querySelector('i');
-
     details.classList.toggle('active');
     button.classList.toggle('active');
-
-    // Update text based on state and language
     const isActive = button.classList.contains('active');
     const textKey = isActive ? 'project_details_active' : 'project_details';
     button.innerHTML = translations[currentLang][textKey] + ' ';
