@@ -1,62 +1,76 @@
-# ⚡ Portafolio Profesional - Marcos Bernard
+# ⚡ Portafolio de Ingeniería v2.0 - Marcos Bernard
 
 [![Licencia: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Supabase](https://img.shields.io/badge/Database-Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white)](https://supabase.com/)
+[![Render](https://img.shields.io/badge/Host-Render-46E3B7?style=flat&logo=render&logoColor=white)](https://render.com/)
 [![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub_Pages-222222?style=flat&logo=github)](https://pages.github.com/)
 
-> **Ingeniería en IoT y Sistemas Embebidos.** Portafolio de alto rendimiento diseñado bajo estándares industriales y optimizado para la exposición de soluciones técnicas complejas.
+> **Ingeniería Electrónica & Cloud Systems.** Ecosistema dinámico de alto rendimiento diseñado para la gestión y exposición de proyectos de hardware, IoT y sistemas embebidos mediante una arquitectura desacoplada.
 
 ---
 
-## 📸 Vista Previa del Sistema
+## 🏗️ Arquitectura del Sistema (Full Stack)
 
-<div align="center">
-  <img src="assets/InicioPortafolioWeb.jpg" alt="Vista de Inicio" width="800px" style="border-radius: 10px; margin-bottom: 10px;">
-  <p><em>Interfaz Principal: Diseño DIN-Style con jerarquía visual optimizada.</em></p>
-</div>
+A diferencia de un portafolio estático convencional, este sistema implementa una arquitectura moderna de tres capas:
 
-<div align="center">
-  <img src="assets/ProjectsPortafolioWeb.jpg" alt="Proyectos" width="400px" style="border-radius: 8px;">
-  <img src="assets/ResumePortafolioWeb.jpg" alt="CV/Resume" width="400px" style="border-radius: 8px;">
-</div>
+- **Frontend**: Interfaz reactiva en Vanilla JS alojada en **GitHub Pages**, con gestión de estado para i18n (Internacionalización) y renderizado dinámico de componentes.
+- **Backend (Middleware)**: API REST construida con **FastAPI (Python 3.14)** desplegada en **Render**. Implementa lógica de caché en RAM para optimizar tiempos de respuesta y minimizar latencia de red.
+- **Capa de Datos**: Base de datos relacional en **Supabase (PostgreSQL)**, permitiendo actualizaciones de proyectos en tiempo real sin necesidad de nuevos despliegues de código.
 
 ---
 
 ## 🛠️ Stack Tecnológico
 
-- **Frontend Core**: HTML5 Semántico y Arquitectura Modular CSS3.
-- **Interactividad**: Vanilla JavaScript para gestión de estados y navegación.
-- **Gestión de Datos**: Integración con **Formspree** para endpoints de contacto seguros (Anti-spam).
-- **Flujo de Trabajo**: Git con estándar de **Conventional Commits** y despliegue automatizado.
+- **Firmware & Hardware Core**: C, PIC/C, KiCad 8.0, PCB Design.
+- **Software Stack**: Python 3.14, FastAPI, PostgreSQL (PostgREST).
+- **Frontend Core**: HTML5 Semántico, CSS3 (Modular Architecture), Vanilla JavaScript.
+- **Herramientas de Ingeniería**: LaTeX (TikZ/LuaLaTeX), Makefile, Git (Conventional Commits).
 
 ## 🚀 Características de Ingeniería
 
-- **Layout DIN-Style**: Estructura inspirada en "Data Sheets" técnicos, priorizando la lectura eficiente de KPIs y especificaciones.
-- **Privacy-First Design**: Protección contra web scrapers mediante formularios desacoplados de la dirección de correo real.
-- **Optimización V&V**: Verificación y validación de diseño responsivo (Mobile-First) con targets de 16px para accesibilidad táctil.
-- **Trazabilidad**: Alineación total con las competencias definidas en el CV v1.1 y tesis profesional.
+- **Hybrid Data Sourcing**: El sistema consume datos dinámicos desde la nube mientras mantiene una experiencia de usuario fluida mediante una estrategia de caché asíncrona.
+- **DIN-Style Layout**: Estructura visual basada en hojas de datos técnicos (Data Sheets), optimizando la jerarquía visual de KPIs y especificaciones de proyectos.
+- **V-Model Optimized**: Documentación y procesos alineados con metodologías de verificación y validación industrial.
+- **Mobile-First & Performance**: Optimizado para una carga ultrarrápida, minimizando el uso de librerías externas y priorizando el rendimiento nativo.
 
 ## 📋 Metodología de Desarrollo
 
-El proyecto se ejecutó siguiendo un ciclo de vida de desarrollo de software (SDLC) riguroso:
+El sistema ha evolucionado siguiendo un ciclo de vida profesional:
 
-1.  **Análisis de Requisitos**: Definición de perfiles de reclutadores técnicos y stakeholders.
-2.  **Diseño de Sistema**: Creación de componentes CSS atómicos y reutilizables.
-3.  **Implementación**: Código limpio, libre de frameworks pesados para maximizar la velocidad de carga.
-4.  **CI/CD**: Pipeline de publicación automática mediante **GitHub Pages**.
+1.  **Migración Cloud**: Transición de datos estáticos (HTML duro) a una arquitectura escalable en Supabase.
+2.  **Optimización de API**: Implementación de un middleware en Python para la orquestación de datos y manejo de políticas CORS.
+3.  **CI/CD**: Pipeline de publicación automática integrado con GitHub, Render y Supabase.
+4.  **Validación de Datos**: Esquemas SQL rigurosos para garantizar la integridad de la información de proyectos (Checklists, Tech Stacks, Progresos).
 
-## 📄 Documentación Técnica
+## 🎯 Enfoque Técnico
 
-Para detalles específicos sobre módulos individuales, consulta la carpeta `docs/`:
+Como **Ingeniero Electrónico**, me especializo en cerrar la brecha entre el **Hardware de bajo nivel** y las **Arquitecturas Cloud**. Mi trabajo se centra en diseñar sistemas donde la confiabilidad del firmware se encuentra con la escalabilidad del software moderno.
 
-- [Análisis de Progreso](docs/analisis-progreso-Portafolio-2025.md)
-- [Notas de Diseño](docs/DESIGN_NOTES.md)
+- **Especialidades:** Firmware Development (C/PIC), IoT Architecture, Python Backend (FastAPI) y Documentación Técnica Industrial (LaTeX).
+- **Filosofía:** Diseño orientado a la eficiencia, trazabilidad bajo modelo V y mantenibilidad de código.
+
+---
+
+## 🚀 Contacto
+
+<div align="left">
+  <a href="https://marcosbernardc.github.io/PortafolioBernardC/">
+    <img src="https://img.shields.io/badge/Live_Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio">
+  </a>
+  <a href="https://github.com/MarcosBernardC">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  </a>
+</div>
+
+**📧 Email:** [bernardlab.dev@gmail.com](mailto:bernardlab.dev@gmail.com)  
+**📍 Base:** Lima, Perú 🇵🇪
 
 ---
 
 <div align="center">
-  <b>Desarrollado con rigor técnico por Marcos Bernard - 2026</b><br>
-  Lima, Perú | Ingeniería de Sistemas
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=009688&height=60&section=footer" width="100%"/>
+  <br>
+  <b>Marcos Bernard - 2026</b><br>
+  <i>Hardware Reliability | Software Efficiency</i>
 </div>
