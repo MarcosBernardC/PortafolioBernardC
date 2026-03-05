@@ -227,17 +227,31 @@ if (langToggle) {
 // Hamburger Menu Logic
 const menuToggle = document.getElementById('menu-toggle');
 const headerSection = document.querySelector('.header-section');
+const menuOverlay = document.getElementById('menu-overlay');
 
 if (menuToggle && headerSection) {
-    menuToggle.addEventListener('click', () => {
-        headerSection.classList.toggle('menu-open');
+    const toggleMenu = (forceClose = false) => {
+        const isOpen = headerSection.classList.contains('menu-open');
+        const shouldOpen = forceClose ? false : !isOpen;
+
+        headerSection.classList.toggle('menu-open', shouldOpen);
+        document.body.classList.toggle('menu-active', shouldOpen);
+
         const icon = menuToggle.querySelector('i');
-        if (headerSection.classList.contains('menu-open')) {
-            icon.classList.replace('fa-bars', 'fa-xmark');
-        } else {
-            icon.classList.replace('fa-xmark', 'fa-bars');
+        if (icon) {
+            if (shouldOpen) {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            }
         }
-    });
+    };
+
+    menuToggle.addEventListener('click', () => toggleMenu());
+
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', () => toggleMenu(true));
+    }
 }
 
 menuItems.forEach(item => {
@@ -256,6 +270,7 @@ menuItems.forEach(item => {
         // Close menu on mobile after selection
         if (headerSection && headerSection.classList.contains('menu-open')) {
             headerSection.classList.remove('menu-open');
+            document.body.classList.remove('menu-active');
             const icon = menuToggle.querySelector('i');
             if (icon) icon.classList.replace('fa-xmark', 'fa-bars');
         }

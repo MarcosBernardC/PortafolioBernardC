@@ -156,6 +156,38 @@ body {
   pointer-events: none;
 }
 
+/* OVERLAY PARA EL MENÚ MÓVIL */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.header-section.menu-open ~ .image-section,
+.header-section.menu-open ~ .content-container {
+  pointer-events: none;
+  filter: blur(4px);
+  transition: filter 0.4s ease;
+}
+
+body.menu-active .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-active {
+  overflow: hidden; /* Evita el scroll cuando el menú está abierto */
+}
+
 .title {
   font-size: 2.8rem;
   font-weight: 600;
