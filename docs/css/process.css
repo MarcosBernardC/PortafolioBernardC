@@ -4,10 +4,10 @@
 .process-container {
     width: 85%;
     height: 85%;
-    background: linear-gradient(145deg, var(--pure-white), var(--light-cream));
+    background: var(--bg-card);
     border-radius: 16px;
-    box-shadow: 0 8px 25px -8 rgba(0, 0, 0, 0.1), 0 4px 12px -4 rgba(0, 0, 0, 0.06), 0 2px 6px -2 rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(226, 232, 240, 0.6);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-main);
     overflow-y: auto;
     overflow-x: hidden;
     padding: 40px 50px;
@@ -41,7 +41,7 @@
 
 /* Quote inspiracional */
 .process-quote {
-    background: linear-gradient(145deg, var(--pure-white), var(--light-cream));
+    background: var(--bg-card);
     border-left: 4px solid var(--vmodel-color);
     padding: 25px 30px;
     margin: 40px auto;
@@ -80,12 +80,11 @@
     bottom: 0;
     width: 2px;
     background: linear-gradient(to bottom, 
-        var(--mvp-color) 0%, 
-        var(--mvp-color) 33%, 
-        var(--spiral-color) 33%, 
-        var(--spiral-color) 66%, 
-        var(--vmodel-color) 66%, 
-        var(--vmodel-color) 100%
+        transparent 0%,
+        var(--mvp-color) 10%, 
+        var(--spiral-color) 50%, 
+        var(--vmodel-color) 90%,
+        transparent 100%
     );
     transform: translateX(-50%);
 }
@@ -106,13 +105,11 @@
 
 .phase-content {
     width: 45%;
-    background: linear-gradient(145deg, var(--pure-white), var(--light-cream));
+    background: var(--bg-card);
     padding: 30px;
     border-radius: 16px;
-    box-shadow: 
-        0 10px 15px -3px rgba(0, 0, 0, 0.05),
-        0 4px 6px -2px rgba(0, 0, 0, 0.025);
-    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-main);
     transition: all 0.3s ease;
 }
 
@@ -142,13 +139,19 @@
     font-size: 1.8rem;
     color: white;
     z-index: 2;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: 4px solid var(--pure-white);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 4px solid var(--bg-card);
+    transition: all 0.4s ease;
 }
 
-.phase-1 .phase-icon { background: linear-gradient(135deg, var(--mvp-color), #10b981); }
-.phase-2 .phase-icon { background: linear-gradient(135deg, var(--spiral-color), #3b82f6); }
-.phase-3 .phase-icon { background: linear-gradient(135deg, var(--vmodel-color), #8b5cf6); }
+.phase-item:hover .phase-icon {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 0 30px var(--accent-color, rgba(255, 255, 255, 0.2));
+}
+
+.phase-1 .phase-icon { background: linear-gradient(135deg, var(--mvp-color), #f39c12); }
+.phase-2 .phase-icon { background: linear-gradient(135deg, var(--spiral-color), #6d28d9); }
+.phase-3 .phase-icon { background: linear-gradient(135deg, var(--vmodel-color), #059669); }
 
 /* Phase Numbers */
 .phase-number {
@@ -164,21 +167,21 @@
 }
 
 .phase-1 .phase-number { 
-    background-color: rgba(5, 150, 105, 0.1);
+    background-color: rgba(251, 191, 36, 0.1);
     color: var(--mvp-color);
-    border: 1px solid rgba(5, 150, 105, 0.2);
+    border: 1px solid rgba(251, 191, 36, 0.2);
 }
 
 .phase-2 .phase-number { 
-    background-color: rgba(37, 99, 235, 0.1);
+    background-color: rgba(168, 85, 247, 0.1);
     color: var(--spiral-color);
-    border: 1px solid rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 .phase-3 .phase-number { 
-    background-color: rgba(124, 58, 237, 0.1);
+    background-color: rgba(16, 185, 129, 0.1);
     color: var(--vmodel-color);
-    border: 1px solid rgba(124, 58, 237, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 .phase-title {
@@ -243,13 +246,11 @@
 /* Tooling Section */
 .tooling-section {
     margin-top: 80px;
-    background: linear-gradient(145deg, var(--pure-white), var(--light-cream));
+    background: var(--bg-card);
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 
-        0 10px 15px -3px rgba(0, 0, 0, 0.05),
-        0 4px 6px -2px rgba(0, 0, 0, 0.025);
-    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-main);
 }
 
 .tooling-title {

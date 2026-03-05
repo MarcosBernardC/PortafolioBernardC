@@ -34,6 +34,12 @@
   --accent-blue: #2563eb;
   --accent-purple: #7c3aed;
   --accent-green: #059669;
+
+  /* Process Phase Colors */
+  --mvp-color: #fbbf24;    /* Warm Amber/Yellow */
+  --spiral-color: #a855f7; /* Vibrant Purple */
+  --vmodel-color: #10b981; /* Fresh Emerald Green */
+  --light-cream: #fdfbf7;  /* Soft cream for contrast */
 }
 
 /* ========================================
@@ -58,6 +64,12 @@ body.dark-theme {
   --pure-white: #1e293b;
   --off-white: #0f172a;
   --lighter-gray: #334155;
+  --light-cream: #1e293b; /* Dark equivalent */
+
+  /* Process Overrides - Dark Premium */
+  --mvp-color: #f59e0b;
+  --spiral-color: #a855f7;
+  --vmodel-color: #34d399;
 }
 
 /* ========================================
