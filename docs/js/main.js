@@ -150,10 +150,13 @@ function renderProjects(projects, container) {
 
         const card = document.createElement('div');
         card.className = 'project-card';
+        card.style.setProperty('--accent-color', project.progress_color || 'var(--accent-blue)');
+        card.style.setProperty('--prog-width', `${project.progress_percent}%`);
+
         card.innerHTML = `
-            <div class="status-badge status-${project.status_badge}">${project.status_badge}</div>
+            <div class="status-badge">${project.status_badge}</div>
             <div class="card-header">
-                <i class="fa-solid ${project.card_icon} card-icon" style="color: ${project.icon_color || 'inherit'};"></i>
+                <i class="fa-solid ${project.card_icon} card-icon" style="color: var(--accent-color);"></i>
             </div>
             <h3 class="card-title">${project.title}</h3>
             <p class="card-description">${desc || ''}</p>
@@ -172,7 +175,7 @@ function renderProjects(projects, container) {
                     <span>${project.progress_percent}%</span>
                 </div>
                 <div class="progress-track">
-                    <div class="progress-fill" style="width: ${project.progress_percent}%; background: ${project.progress_color || 'var(--accent-blue)'};"></div>
+                    <div class="progress-fill"></div>
                 </div>
             </div>
 

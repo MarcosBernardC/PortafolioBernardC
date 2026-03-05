@@ -13,6 +13,18 @@
   --progress-track-bg: var(--lighter-gray);
   --glass-bg: rgba(255, 255, 255, 0.9);
   --card-shadow: var(--shadow-medium);
+
+  /* Progress Palette - Restoration */
+  --prog-coral: #FF7F50;     /* 0% - 20% */
+  --prog-amber: #FFBF00;     /* 21% - 50% */
+  --prog-cobalt: #2563eb;    /* 51% - 85% */
+  --prog-turquoise: #00CED1; /* 86% - 99% */
+  --prog-forest: #228B22;    /* 100% */
+  
+  /* Fallbacks */
+  --accent-blue: #2563eb;
+  --accent-purple: #7c3aed;
+  --accent-green: #059669;
 }
 
 /* ========================================
