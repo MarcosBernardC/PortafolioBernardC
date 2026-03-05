@@ -37,7 +37,7 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.025),
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
     inset 0 -1px 0 rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  border: 1px solid var(--border-main);
   transition: var(--transition);
   position: relative;
   overflow: hidden;
@@ -135,7 +135,7 @@
 .progress-track {
   width: 100%;
   height: 6px;
-  background-color: var(--lighter-gray);
+  background-color: var(--progress-track-bg);
   border-radius: 999px;
   overflow: hidden;
   position: relative;
@@ -302,7 +302,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
-  border-bottom: 1px solid var(--lighter-gray);
+  border-bottom: 1px solid var(--border-subtle);
   font-size: 0.85rem;
   color: var(--slate-gray);
 }
@@ -327,7 +327,7 @@
   color: var(--accent-green);
 }
 .checklist-icon.pending {
-  color: var(--lighter-gray);
+  color: var(--border-subtle);
 }
 .checklist-icon.in-progress {
   color: #f39c12;

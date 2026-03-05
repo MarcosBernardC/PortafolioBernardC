@@ -2,10 +2,46 @@ import translations from './translations.js';
 
 const menuItems = document.querySelectorAll('.menu-item');
 const sections = document.querySelectorAll('.content-section');
-// docs/js/main.js
+// --- Language and Theme Logic ---
 const API_URL = "https://portafoliobernardc.onrender.com";
 
-// --- Language Switching Logic ---
+// 1. Theme (Dark Mode) Logic
+function updateThemeIcon(isDark) {
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (!toggleBtn) return;
+    const icon = toggleBtn.querySelector('i');
+    if (isDark) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+    }
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('user-theme');
+    const systemHour = new Date().getHours();
+    let isDark = false;
+
+    if (savedTheme) {
+        isDark = savedTheme === 'dark';
+    } else {
+        // Automation: 17:00 (5 PM) to 06:00 (6 AM)
+        isDark = systemHour >= 17 || systemHour < 6;
+    }
+
+    if (isDark) {
+        document.body.classList.add('dark-theme');
+    } else {
+        document.body.classList.remove('dark-theme');
+    }
+    updateThemeIcon(isDark);
+}
+
+function toggleTheme() {
+    const isDark = document.body.classList.toggle('dark-theme');
+    localStorage.setItem('user-theme', isDark ? 'dark' : 'light');
+    updateThemeIcon(isDark);
+}
 const getInitialLanguage = () => {
     const saved = localStorage.getItem('portfolio-lang');
     if (saved) return saved;
@@ -168,8 +204,14 @@ function renderProjects(projects, container) {
 
 // --- Resto de tu lógica original (PDF, Menú, etc.) ---
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     setLanguage(currentLang);
 });
+
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+}
 
 const langToggle = document.getElementById('lang-toggle');
 if (langToggle) {
