@@ -14,6 +14,15 @@
   --glass-bg: rgba(255, 255, 255, 0.9);
   --card-shadow: var(--shadow-medium);
 
+  /* Base Tokens - Light Theme */
+  --dark-charcoal: #1e293b;
+  --slate-gray: #64748b;
+  --border-gray: #e2e8f0;
+  --pure-white: #ffffff;
+  --off-white: #f8fafc;
+  --lighter-gray: #f1f5f9;
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
   /* Progress Palette - Restoration */
   --prog-coral: #FF7F50;     /* 0% - 20% */
   --prog-amber: #FFBF00;     /* 21% - 50% */
