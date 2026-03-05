@@ -224,6 +224,22 @@ if (langToggle) {
     });
 }
 
+// Hamburger Menu Logic
+const menuToggle = document.getElementById('menu-toggle');
+const headerSection = document.querySelector('.header-section');
+
+if (menuToggle && headerSection) {
+    menuToggle.addEventListener('click', () => {
+        headerSection.classList.toggle('menu-open');
+        const icon = menuToggle.querySelector('i');
+        if (headerSection.classList.contains('menu-open')) {
+            icon.classList.replace('fa-bars', 'fa-xmark');
+        } else {
+            icon.classList.replace('fa-xmark', 'fa-bars');
+        }
+    });
+}
+
 menuItems.forEach(item => {
     item.addEventListener('click', () => {
         menuItems.forEach(mi => mi.classList.remove('active'));
@@ -236,6 +252,13 @@ menuItems.forEach(item => {
                 sec.classList.remove('active');
             }
         });
+
+        // Close menu on mobile after selection
+        if (headerSection && headerSection.classList.contains('menu-open')) {
+            headerSection.classList.remove('menu-open');
+            const icon = menuToggle.querySelector('i');
+            if (icon) icon.classList.replace('fa-xmark', 'fa-bars');
+        }
     });
 });
 
