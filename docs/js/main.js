@@ -25,8 +25,8 @@ function initTheme() {
     if (savedTheme) {
         isDark = savedTheme === 'dark';
     } else {
-        // Automation: 17:00 (5 PM) to 06:00 (6 AM)
-        isDark = systemHour >= 17 || systemHour < 6;
+        // Automation: 18:00 (6 PM) to 06:00 (6 AM)
+        isDark = systemHour >= 18 || systemHour < 6;
     }
 
     if (isDark) {
