@@ -5,6 +5,44 @@ const sections = document.querySelectorAll('.content-section');
 // --- Language and Theme Logic ---
 const API_URL = "https://portafoliobernardc.onrender.com";
 
+const STATUS_ORDER = ['V-MODEL', 'SPIRAL', 'MVP', 'DEVELOPING', 'PENDING'];
+
+// ── Interpolador de color por progreso
+const PROGRESS_PALETTE = [
+    { pct: 0,   r: 220, g: 38,  b: 38  },  // Rojo
+    { pct: 25,  r: 234, g: 108, b: 13  },  // Naranja
+    { pct: 50,  r: 234, g: 197, b: 13  },  // Amarillo
+    { pct: 75,  r: 100, g: 200, b: 60  },  // Verde claro
+    { pct: 100, r: 34,  g: 197, b: 94  },  // Verde
+];
+
+function getProgressColor(pct) {
+    // Clamp entre 0 y 100
+    pct = Math.min(100, Math.max(0, pct));
+
+    // Encontrar el segmento donde cae el porcentaje
+    let lo = PROGRESS_PALETTE[0];
+    let hi = PROGRESS_PALETTE[PROGRESS_PALETTE.length - 1];
+
+    for (let i = 0; i < PROGRESS_PALETTE.length - 1; i++) {
+        if (pct >= PROGRESS_PALETTE[i].pct && pct <= PROGRESS_PALETTE[i + 1].pct) {
+            lo = PROGRESS_PALETTE[i];
+            hi = PROGRESS_PALETTE[i + 1];
+            break;
+        }
+    }
+
+    // Factor de interpolación dentro del segmento (0.0 → 1.0)
+    const range = hi.pct - lo.pct;
+    const t = range === 0 ? 0 : (pct - lo.pct) / range;
+
+    const r = Math.round(lo.r + (hi.r - lo.r) * t);
+    const g = Math.round(lo.g + (hi.g - lo.g) * t);
+    const b = Math.round(lo.b + (hi.b - lo.b) * t);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
 // 1. Theme (Dark Mode) Logic
 function updateThemeIcon(isDark) {
     const toggleBtn = document.getElementById('theme-toggle');
@@ -111,8 +149,14 @@ async function loadProjects() {
         if (!response.ok) throw new Error("API Offline");
         
         // Guardamos el resultado en nuestra variable global (caché)
-        projectsData = await response.json();
+        // projectsData = await response.json();
         
+        projectsData = await response.json();
+        projectsData.sort((a, b) =>
+            (STATUS_ORDER.indexOf(a.status_badge) ?? 99) -
+            (STATUS_ORDER.indexOf(b.status_badge) ?? 99)
+        );
+
         if (projectsData.length === 0) {
             container.innerHTML = `<p style="color:gray; text-align:center; width:100%; grid-column: 1/-1;">No hay proyectos disponibles por ahora.</p>`;
             return;
@@ -150,7 +194,8 @@ function renderProjects(projects, container) {
 
         const card = document.createElement('div');
         card.className = 'project-card';
-        card.style.setProperty('--accent-color', project.progress_color || 'var(--accent-blue)');
+        //card.style.setProperty('--accent-color', project.progress_color || 'var(--accent-blue)');
+        card.style.setProperty('--accent-color', getProgressColor(project.progress_percent));
         card.style.setProperty('--prog-width', `${project.progress_percent}%`);
 
         card.innerHTML = `
