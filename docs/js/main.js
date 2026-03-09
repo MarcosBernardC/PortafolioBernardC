@@ -7,6 +7,8 @@ const API_URL = "https://portafoliobernardc.onrender.com";
 
 const STATUS_ORDER = ['V-MODEL', 'SPIRAL', 'MVP', 'DEVELOPING', 'PENDING'];
 
+let activeFilter = 'All';
+
 // ── Interpolador de color por progreso
 const PROGRESS_PALETTE = [
     { pct: 0,   r: 220, g: 38,  b: 38  },  // Rojo
@@ -180,21 +182,50 @@ async function loadProjects() {
 }
 
 function renderProjects(projects, container) {
-    container.innerHTML = ""; 
-    projects.forEach(project => {
-        // Seleccionamos los datos de Supabase según el idioma
-        const desc = currentLang === 'es' ? project.description_es : project.description_en;
-        const loc = currentLang === 'es' ? project.location_es : project.location_en;
-        
-        // Seleccionamos etiquetas estáticas de translations.js
+    // Construir barra de filtros (solo la primera vez)
+    if (!document.getElementById('filter-bar')) {
+        const allTags = ['All', ...new Set(projects.flatMap(p => p.tags || []))];
+        const bar = document.createElement('div');
+        bar.id = 'filter-bar';
+        bar.className = 'filter-bar';
+        allTags.forEach(tag => {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn' + (tag === activeFilter ? ' active' : '');
+            btn.textContent = tag;
+            btn.addEventListener('click', () => {
+                activeFilter = tag;
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderProjects(projectsData, container);
+            });
+            bar.appendChild(btn);
+        });
+        container.before(bar);
+    }
+
+    // Filtrar proyectos
+    const visible = activeFilter === 'All'
+        ? projects
+        : projects.filter(p => p.tags && p.tags.includes(activeFilter));
+
+    container.innerHTML = '';
+
+    if (visible.length === 0) {
+        container.innerHTML = `<p style="color:gray; text-align:center; width:100%; grid-column:1/-1; padding: 40px 0;">No hay proyectos en esta categoría.</p>`;
+        return;
+    }
+
+    visible.forEach(project => {
+        const desc  = currentLang === 'es' ? project.description_es : project.description_en;
+        const loc   = currentLang === 'es' ? project.location_es   : project.location_en;
+
         const labelProgress = translations[currentLang]['project_progress'] || 'Progreso';
-        const labelRepo = translations[currentLang]['project_repo'] || 'VER REPOSITORIO';
-        const labelDetails = translations[currentLang]['project_details'] || 'Ver Detalles';
-        const labelPending = translations[currentLang]['p_date_pending'] || 'Pendiente';
+        const labelRepo     = translations[currentLang]['project_repo']     || 'VER REPOSITORIO';
+        const labelDetails  = translations[currentLang]['project_details']  || 'Ver Detalles';
+        const labelPending  = translations[currentLang]['p_date_pending']   || 'Pendiente';
 
         const card = document.createElement('div');
         card.className = 'project-card';
-        //card.style.setProperty('--accent-color', project.progress_color || 'var(--accent-blue)');
         card.style.setProperty('--accent-color', getProgressColor(project.progress_percent));
         card.style.setProperty('--prog-width', `${project.progress_percent}%`);
 
@@ -205,8 +236,8 @@ function renderProjects(projects, container) {
             </div>
             <h3 class="card-title">${project.title}</h3>
             <p class="card-description">${desc || ''}</p>
-            
-            <div style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">
+
+            <div style="font-size:0.85rem; color:#888; margin-bottom:10px;">
                 <i class="fa-solid fa-location-dot"></i> <span>${loc || ''}</span>
             </div>
 
@@ -236,9 +267,8 @@ function renderProjects(projects, container) {
                         </li>
                     `).join('') : ''}
                 </ul>
-
-                <a href="${project.repo_url}" target="_blank" class="cv-button" style="margin: 15px 0 0 0; text-decoration: none; justify-content: center; width: 100%; box-sizing: border-box; display: flex;">
-                    <i class="fa-brands fa-github" style="margin-right: 8px;"></i> <span>${labelRepo}</span>
+                <a href="${project.repo_url}" target="_blank" class="cv-button" style="margin:15px 0 0 0; text-decoration:none; justify-content:center; width:100%; box-sizing:border-box; display:flex;">
+                    <i class="fa-brands fa-github" style="margin-right:8px;"></i> <span>${labelRepo}</span>
                 </a>
             </div>
 
