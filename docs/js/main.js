@@ -144,7 +144,8 @@ async function loadProjects() {
 
     try {
         // 4. Hacemos la ÚNICA petición necesaria
-        const response = await fetch(`data/projects.json`);
+        const base = document.querySelector('base')?.href || window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
+        const response = await fetch(`${base}data/projects.json`);
         if (!response.ok) throw new Error("File not found");
         
         // Guardamos el resultado en nuestra variable global (caché)
