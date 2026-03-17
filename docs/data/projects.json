@@ -1,0 +1,139 @@
+[
+  {
+    "id": "432c5109-97e7-4747-8fe4-67e88e5e42ed",
+    "title": "CRM Laboral: Engineering Solutions",
+    "status_badge": "MVP",
+    "card_icon": "fa-database",
+    "icon_color": "#2980b9",
+    "description_es": "Ecosistema de gestión de datos y automatización de procesos de selección técnica.",
+    "description_en": "Data management ecosystem and automation for technical recruitment processes.",
+    "location_es": "Cloud Stack (FastAPI / Supabase)",
+    "location_en": "Cloud Stack (FastAPI / Supabase)",
+    "tech_stack": ["Python 3.14", "FastAPI", "PostgreSQL", "ETL"],
+    "progress_percent": 85,
+    "progress_color": "var(--prog-cobalt)",
+    "repo_url": "https://github.com/MarcosBernardC/CRM_LABORAL",
+    "checklist": [
+      { "date": "Feb 28", "done": true, "text_en": "Backend Architecture & API", "text_es": "Arquitectura Backend & API" },
+      { "date": "Mar 01", "done": true, "text_en": "DB Schema & Migrations", "text_es": "Esquema DB & Migraciones" },
+      { "date": "Mar 04", "done": false, "text_en": "Frontend Dashboard (Docs)", "text_es": "Frontend Dashboard (Docs)", "in_progress": true },
+      { "date": "Pendiente", "done": false, "text_en": "Job Application Automation", "text_es": "Automatización de Postulación" }
+    ],
+    "created_at": "2026-03-04 23:17:28.662379+00",
+    "tags": ["Software", "Cloud"]
+  },
+  {
+    "id": "5521ad1b-ab3c-4dfd-8faf-dc98c2ac967b",
+    "title": "Instrumentation Manuals Pro",
+    "status_badge": "V-MODEL",
+    "card_icon": "fa-file-lines",
+    "icon_color": "#95a5a6",
+    "description_es": "Reingeniería y localización técnica de manuales industriales. Transformación de documentación obsoleta en manuales vectoriales de alta precisión.",
+    "description_en": "Technical re-engineering and localization of industrial manuals. Transforming obsolete documentation into high-precision vectorial manuals.",
+    "location_es": "Lutron Precision Components | Control de Calidad",
+    "location_en": "Lutron Precision Components | Quality Control",
+    "tech_stack": ["LaTeX", "TikZ", "Makefile", "Git"],
+    "progress_percent": 100,
+    "progress_color": "var(--prog-forest)",
+    "repo_url": "https://github.com/MarcosBernardC/instrumentation-manuals-pro",
+    "checklist": [
+      { "date": "2026", "done": true, "text_en": "Digitization and Helvetica typography (12pt)", "text_es": "Digitalización y tipografía Helvetica (12pt)" },
+      { "date": "2026", "done": true, "text_en": "Vectorial hardware schematics with TikZ", "text_es": "Esquemas de hardware vectoriales con TikZ" },
+      { "date": "2026", "done": true, "text_en": "Technical translation and DIN standardization", "text_es": "Traducción técnica y estandarización DIN" },
+      { "date": "2026", "done": true, "text_en": "Build automation with Makefile", "text_es": "Automatización de compilación con Makefile" }
+    ],
+    "created_at": "2026-03-04 23:16:39.932778+00",
+    "tags": ["Documentación"]
+  },
+  {
+    "id": "721b0145-01c7-4c36-880f-e102dea05447",
+    "title": "AgriNode Lite",
+    "status_badge": "PENDING",
+    "card_icon": "fa-microchip",
+    "icon_color": "#4CAF50",
+    "description_es": "Nodo IoT de sensado agroambiental.",
+    "description_en": "IoT node for agri-environmental sensing.",
+    "location_es": "Laboratorio IoT (Monterrico, Lima)",
+    "location_en": "IoT Laboratory (Monterrico, Lima)",
+    "tech_stack": ["C", "UART", "I2C"],
+    "progress_percent": 35,
+    "progress_color": "var(--prog-amber)",
+    "repo_url": "https://github.com/MarcosBernardC/agrinode-lite",
+    "checklist": [
+      { "date": "Ene 15", "done": true, "text_en": "Schematic Design", "text_es": "Diseño Esquemático" },
+      { "date": "Ene 20", "done": true, "text_en": "Sensor Validation", "text_es": "Validación Sensores" },
+      { "date": "Pendiente", "done": false, "text_en": "Power Optimization", "text_es": "Optimización Energía", "in_progress": true },
+      { "date": "--", "done": false, "text_en": "Documentation", "text_es": "Documentación" }
+    ],
+    "created_at": "2026-03-04 23:11:10.111126+00",
+    "tags": ["Hardware", "Firmware"]
+  },
+  {
+    "id": "99c6c188-25fe-4a4d-8a05-eb1a08428286",
+    "title": "DomoNode",
+    "status_badge": "DEVELOPING",
+    "card_icon": "fa-microchip",
+    "icon_color": "#e67e22",
+    "description_es": "Nodo IoT avanzado para eficiencia energética con integración cloud y documentación técnica en LaTeX.",
+    "description_en": "Advanced IoT node for energy efficiency with cloud integration and technical documentation in LaTeX.",
+    "location_es": "Embedded Stack (C / Supabase / Koyeb)",
+    "location_en": "Embedded Stack (C / Supabase / Koyeb)",
+    "tech_stack": ["Embedded C", "XC8", "Python", "PostgreSQL", "LuaLaTeX"],
+    "progress_percent": 15,
+    "progress_color": "#f39c12",
+    "repo_url": "https://github.com/MarcosBernardC/DomoNode",
+    "checklist": [
+      { "date": "Mar 10", "done": false, "text_en": "Base Firmware & HAL", "text_es": "Firmware Base & HAL", "in_progress": true },
+      { "date": "Pendiente", "done": false, "text_en": "Cloud Integration (API/DB)", "text_es": "Integración Cloud (API/DB)" },
+      { "date": "Pendiente", "done": false, "text_en": "Glassmorphism Dashboard", "text_es": "Dashboard Glassmorphism" },
+      { "date": "Pendiente", "done": false, "text_en": "Technical Manual (LuaLaTeX)", "text_es": "Manual Técnico (LuaLaTeX)" }
+    ],
+    "created_at": "2026-03-09 12:40:52.895424+00",
+    "tags": ["Hardware", "Firmware"]
+  },
+  {
+    "id": "d6e99077-1587-48b1-a5e6-30c3854d8de8",
+    "title": "Edge Computing Agroambiental",
+    "status_badge": "SPIRAL",
+    "card_icon": "fa-tower-broadcast",
+    "icon_color": "#3498db",
+    "description_es": "Sistema distribuido con validación real en Calango. Optimización de latencia y robustez en hardware embebido.",
+    "description_en": "Distributed system with real validation in Calango. Latency optimization and robustness in embedded hardware.",
+    "location_es": "Instalación en campo (Calango, Lima 2025)",
+    "location_en": "Field installation (Calango, Lima 2025)",
+    "tech_stack": ["PIC/C", "LuaLaTeX", "PCB Design"],
+    "progress_percent": 100,
+    "progress_color": "var(--prog-forest)",
+    "repo_url": "https://github.com/MarcosBernardC/edgeComputingCalango",
+    "checklist": [
+      { "date": "Oct 25", "done": true, "text_en": "Deployment and Physical Installation", "text_es": "Despliegue e Instalación Física" },
+      { "date": "Nov 25", "done": true, "text_en": "Mobile/Desktop App Telemetry", "text_es": "Telemetría App Móvil/Escritorio" },
+      { "date": "Dic 25", "done": true, "text_en": "Data Analysis (95% PDR)", "text_es": "Análisis de Datos (95% PDR)" },
+      { "date": "Feb 26", "done": true, "text_en": "Author's Version (LuaLaTeX)", "text_es": "Versión de Autor (LuaLaTeX)" }
+    ],
+    "created_at": "2026-03-04 23:16:39.932778+00",
+    "tags": ["Hardware", "Firmware", "Cloud"]
+  },
+  {
+    "id": "dd180edd-39d3-4850-8f27-ef5e16d3bbdd",
+    "title": "Dimmer PWM Multicanal",
+    "status_badge": "SPIRAL",
+    "card_icon": "fa-lightbulb",
+    "icon_color": "#f1c40f",
+    "description_es": "Controlador de iluminación de alta eficiencia. Diseño de hardware compacto con regulación Buck integrada y firmware optimizado en C.",
+    "description_en": "High-efficiency lighting controller. Compact hardware design with integrated Buck regulation and C-optimized firmware.",
+    "location_es": "Instalación en campo (Lima 2025)",
+    "location_en": "Field installation (Lima 2025)",
+    "tech_stack": ["PIC/C", "KiCad 8.0", "FreeCAD", "Makefile"],
+    "progress_percent": 100,
+    "progress_color": "var(--prog-forest)",
+    "repo_url": "https://github.com/MarcosBernardC/PIC12F675-LED-Dimmer",
+    "checklist": [
+      { "date": "Feb 26", "done": true, "text_en": "Logic Simulation & Research", "text_es": "Investigación y Simulación Lógica" },
+      { "date": "Feb 26", "done": true, "text_en": "3D Layout & Base Schematic", "text_es": "Layout 3D y Esquemático Base" },
+      { "date": "DONE", "done": true, "text_en": "Routing & Buck Converter Integration", "text_es": "Ruteado e Integración Buck Converter" }
+    ],
+    "created_at": "2026-03-04 23:15:16.979809+00",
+    "tags": ["Hardware", "Firmware"]
+  }
+]

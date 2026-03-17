@@ -2,9 +2,6 @@ import translations from './translations.js';
 
 const menuItems = document.querySelectorAll('.menu-item');
 const sections = document.querySelectorAll('.content-section');
-// --- Language and Theme Logic ---
-const API_URL = "https://portafoliobernardc.onrender.com";
-
 const STATUS_ORDER = ['V-MODEL', 'SPIRAL', 'MVP', 'DEVELOPING', 'PENDING'];
 
 let activeFilter = 'All';
@@ -121,10 +118,10 @@ function setLanguage(lang) {
     loadProjects();
 }
 
-// --- Dynamic Projects Logic (La "magia" de Supabase con Caché Local) ---
+// --- Dynamic Projects Logic (Local JSON Cache) ---
 
 // 1. Esta variable DEBE estar fuera para que persista entre cambios de idioma
-let projectsData = []; 
+let projectsData = [];  
 
 async function loadProjects() {
     const container = document.getElementById("projects-container");
@@ -147,8 +144,8 @@ async function loadProjects() {
 
     try {
         // 4. Hacemos la ÚNICA petición necesaria
-        const response = await fetch(`${API_URL}/projects`);
-        if (!response.ok) throw new Error("API Offline");
+        const response = await fetch(`data/projects.json`);
+        if (!response.ok) throw new Error("File not found");
         
         // Guardamos el resultado en nuestra variable global (caché)
         // projectsData = await response.json();
@@ -172,7 +169,7 @@ async function loadProjects() {
         container.innerHTML = `
             <div style="color:gray; text-align:center; width:100%; grid-column: 1/-1; padding: 40px;">
                 <i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                <p>Modo Offline: No se pudieron cargar los proyectos.</p>
+                <p>Error: No se pudieron cargar los proyectos.</p>
                 <button onclick="loadProjects()" class="cv-button" style="margin-top: 15px; display: inline-flex;">
                     <i class="fa-solid fa-rotate-right" style="margin-right:8px;"></i> Reintentar
                 </button>
